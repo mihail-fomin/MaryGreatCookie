@@ -7,7 +7,7 @@ export const CatalogProduct = ({ item }) => {
 	const dispatch = useDispatch()
 	return (
 		<article className={style.product}>
-			<img src={`${API_URI}/${item.image}`} alt={item.title} className={style.image} />
+			<img src={`${item.image}`} alt={item.title} className={style.image} />
 
 			<p className={style.price}>{item.price}<span className="currency">&nbsp;₽</span></p>
 
@@ -15,7 +15,7 @@ export const CatalogProduct = ({ item }) => {
 				<button className={style.detail}>{item.title}</button>
 			</h3>
 
-			<p className={style.weight}>{item.weight}</p>
+			<p className={style.weight}>{item.weight}&nbsp;г</p>
 
 			<button
 				className={style.add}

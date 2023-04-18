@@ -1,5 +1,6 @@
 .order {
 	position: relative;
+	z-index: 1;
 }
 
 .wrapper {
@@ -30,7 +31,7 @@
 }
 
 .header:focus-visible:after {
-	outline-color: #FFAB08;
+	outline-color: #BA1C36;
 }
 
 .order_open .header {
@@ -81,7 +82,7 @@
 .submit {
 	width: 100%;
 	padding: 9px;
-	background: #FF7020;
+	background: #DB2544;
 	border-radius: 8px;
 	font-weight: 400;
 	font-size: 12px;
@@ -91,7 +92,7 @@
 }
 
 .submit:hover {
-	background: #ec6518;
+	background: #F04360;
 	transition: all 0.2s;
 }
 

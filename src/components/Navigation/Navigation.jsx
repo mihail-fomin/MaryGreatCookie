@@ -34,7 +34,6 @@ export const Navigation = () => {
 						</li>
 					)}
 				</ul>
-
 			</Container>
 		</nav>
 	)

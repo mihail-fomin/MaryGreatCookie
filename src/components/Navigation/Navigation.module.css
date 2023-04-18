@@ -31,20 +31,23 @@
 
 .button:hover,
 .button:focus-visible {
-	outline: 1px solid #F86310;
+	outline: 1px solid #F04360;
 	outline-offset: -1px;
 }
 
 @supports not selector(:focus-visible) {
 	.button:focus {
-		outline: 1px solid #F86310;
+		outline: 1px solid #BA1C36;
 		outline-offset: -1px;
 	}
 }
 
 .button_active {
 	pointer-events: none;
-	background-color: #FFAB08;
+	background-color: #F04360;
+	color: #fff;
+	transition: all 0.2s;
+	font-weight: 700;
 }
 
 .button_active:focus {

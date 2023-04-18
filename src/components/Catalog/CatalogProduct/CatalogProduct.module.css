@@ -37,7 +37,7 @@
 
 .detail:focus-visible,
 .detail:hover {
-	color: #F86310;
+	color: #DB2544;
 }
 
 .detail:after {
@@ -50,7 +50,7 @@
 }
 
 .detail:focus-visible:after {
-	outline-color: #F86310;
+	outline-color: #DB2544;
 }
 
 .weight {
@@ -73,11 +73,12 @@
 }
 
 .add:hover {
-	background-color: #FFAB08;
+	background-color: #DB2544;
+	color: #fff;
 }
 
 .add:focus-visible {
-	background-color: #F86310;
+	background-color: #DB2544;
 }
 
 .add:active {

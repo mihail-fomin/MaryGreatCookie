@@ -120,7 +120,7 @@ export const ModalDelivery = () => {
 					className={style.modal__close}
 					type='button'
 					onClick={() => {
-						dispatch(closeModal)
+						dispatch(closeModal())
 					}}
 				>
 					<svg
