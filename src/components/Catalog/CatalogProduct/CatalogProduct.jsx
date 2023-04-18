@@ -7,7 +7,9 @@ export const CatalogProduct = ({ item }) => {
 	const dispatch = useDispatch()
 	return (
 		<article className={style.product}>
-			<img src={`${item.image}`} alt={item.title} className={style.image} />
+			<div className={style.scale}>
+				<img src={`${item.image}`} alt={item.title} className={style.image} />
+			</div>
 
 			<p className={style.price}>{item.price}<span className="currency">&nbsp;₽</span></p>
 

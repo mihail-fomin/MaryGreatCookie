@@ -12,17 +12,35 @@ const initialState = {
 	intercom: '',
 }
 
+// let formatBody = ({ name, phone, format }) => `
+// <strong>Заявка с сайта</strong>n/
+// <b>Отправитель:</b> ${name}n/
+// <b>Телефон:</b> ${phone}n/
+// <b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'}
+// `
+
+// let body = formatBody({
+// 	name: this.name.value,
+// 	phone: this.phone.value,
+// 	format: this.format.value,
+// 	data:
+// })
+
 export const submitForm = createAsyncThunk(
 	'form/submit',
 	async (data, { dispatch, rejectWithValue }) => {
 		try {
-			const response = await fetch('https://cloudy-slash-rubidium.glitch.me/api/order',
+			const response = await fetch('https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage',
 				{
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
 					},
-					body: JSON.stringify(data)
+					body: JSON.stringify({
+						chat_id: "-1001759583869",
+						text: data,
+						parse_mode: "html",
+					})
 				}
 			)
 			if (!response.ok) {
