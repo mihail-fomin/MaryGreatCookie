@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@fontsource/lobster": "^4.5.11",
 		"@headlessui/react": "^1.7.13",
 		"@reduxjs/toolkit": "^1.9.3",
 		"imagekitio-react": "^2.0.0",

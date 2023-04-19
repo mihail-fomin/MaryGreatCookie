@@ -327,6 +327,11 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.16.tgz#260f19b0a3300d22c3a3f52722c671dc561edaa3"
   integrity sha512-xJ7OH/nanouJO9pf03YsL9NAFQBHd8AqfrQd7Pf5laGyyTt/gToul6QYOA/i5i/q8y9iaM5DQFNTgpi995VkOg==
 
+"@fontsource/lobster@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/lobster/-/lobster-4.5.11.tgz#f2d9f3583cd6c249d1b31efc059cb0d0eebc3a7f"
+  integrity sha512-763GTn/QS42WI8LSZcmrLITvCzs8vHfTQhbltPQ8NWGYRJV9L+C8HIUm7qqL1R8+tyxkmruKlHDqdlpT+dPFXQ==
+
 "@headlessui/react@^1.7.13":
   version "1.7.13"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.13.tgz#fd150b394954e9f1d86ed2340cffd1217d6e7628"
