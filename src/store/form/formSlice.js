@@ -10,13 +10,15 @@ const initialState = {
 	adress: '',
 	floor: '',
 	intercom: '',
+	comments: '',
 }
 
 // let formatBody = ({ name, phone, format }) => `
 // <strong>Заявка с сайта</strong>n/
 // <b>Отправитель:</b> ${name}n/
 // <b>Телефон:</b> ${phone}n/
-// <b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'}
+// <b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'} n/
+// <b>Комментарии к заказу:</b> ${comments}
 // `
 
 // let body = formatBody({

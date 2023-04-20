@@ -54,7 +54,6 @@ export const ModalDelivery = () => {
 							/>
 						</fieldset>
 
-
 						<fieldset className={style.fieldset_radio}>
 							<label className={style.label}>
 								<input
@@ -109,6 +108,17 @@ export const ModalDelivery = () => {
 								/>
 							</fieldset>
 						)}
+						<fieldset className={style.fieldset}>
+							<textarea
+								className={classNames(style.comments)}
+								rows={3}
+								type='text'
+								name='comments'
+								value={form.comments}
+								placeholder='Комментарии к заказу'
+								onChange={handleInputChange}
+							/>
+						</fieldset>
 					</form>
 
 					<button className={style.submit} type='submit' form='delivery'>
