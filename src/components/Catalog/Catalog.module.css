@@ -11,7 +11,7 @@
 	font-weight: 600;
 	font-size: 28px;
 	line-height: 120%;
-	margin-bottom: 16px;
+	margin: 16px 0;
 	font-family: 'Lobster', cursive;
 }
 
@@ -58,10 +58,10 @@
 }
 
 .lds {
-	display: inline-block;
 	position: relative;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
 }
 
 .lds div {
