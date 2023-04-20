@@ -26,8 +26,10 @@ export const Catalog = () => {
 				<div className={style.container}>
 					<Order />
 					<div className={style.wrapper}>
-						{isPending ? <p className={style.empty}>Подождите, идет загрузка товаров с сервера...</p> : ''}
-						{console.log('isPending: ', isPending)}
+						{isPending ? <>
+							<p className={style.empty}>Подождите, идет загрузка товаров с сервера...</p><div className={style.lds}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+						</>
+							: ''}
 						<h2 className={style.title}>{category[activeCategory]?.rus}</h2>
 						<div className={style.wrap_list}>
 							{/* {products.length ? */}
