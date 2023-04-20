@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../Container/Container"
 import style from "./Catalog.module.css"
@@ -8,15 +8,17 @@ import { CatalogProduct } from "./CatalogProduct/CatalogProduct";
 
 export const Catalog = () => {
 	const { products } = useSelector(state => state.product)
-	const dispatch = useDispatch()
 	const { category, activeCategory } = useSelector(state => state.category)
+	const dispatch = useDispatch()
+	const [isPending, setIsPending] = useState(true)
 
 	useEffect(() => {
 		if (category.length) {
 			dispatch(productRequestAsync(category[activeCategory].title))
+			setIsPending(false)
 		}
-
 	}, [category, activeCategory])
+
 
 	return (
 		<section className={style.catalog}>
@@ -24,20 +26,22 @@ export const Catalog = () => {
 				<div className={style.container}>
 					<Order />
 					<div className={style.wrapper}>
+						{isPending ? <p className={style.empty}>Подождите, идет загрузка товаров с сервера...</p> : ''}
+						{console.log('isPending: ', isPending)}
 						<h2 className={style.title}>{category[activeCategory]?.rus}</h2>
 						<div className={style.wrap_list}>
-							{products.length ?
-								<ul className={style.list}>
-									{
-										products.map((item) => (
-											<li key={item.id} className={style.item}>
-												<CatalogProduct item={item} />
-											</li>
-										))
-									}
-								</ul>
-								: <p className={style.empty}>К сожалению, товаров данной категории нет</p>
-							}
+							{/* {products.length ? */}
+							<ul className={style.list}>
+								{
+									products.map((item) => (
+										<li key={item.id} className={style.item}>
+											<CatalogProduct item={item} />
+										</li>
+									))
+								}
+							</ul>
+							{/* : <p className={style.empty}>К сожалению, товаров данной категории нет</p> */}
+
 						</div>
 					</div>
 				</div>

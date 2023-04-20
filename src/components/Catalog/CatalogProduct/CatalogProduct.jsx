@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux'
-import { API_URI } from '../../../const'
 import { addProduct } from '../../../store/order/orderSlice'
 import style from './CatalogProduct.module.css'
 

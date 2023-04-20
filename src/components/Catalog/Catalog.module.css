@@ -12,10 +12,12 @@
 	font-size: 28px;
 	line-height: 120%;
 	margin-bottom: 16px;
+	font-family: 'Lobster', cursive;
 }
 
 .list {
 	display: grid;
+
 	grid-template-columns: repeat(auto-fit, 145px);
 	gap: 10px;
 }

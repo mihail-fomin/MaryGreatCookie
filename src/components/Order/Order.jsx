@@ -52,7 +52,11 @@ export const Order = () => {
 
 					<div className={style.apeal}>
 						<p className={style.text}>Стоимость доставки будет посчитана позже</p>
-						<button className={style.close}>Свернуть</button>
+						<button
+							className={style.close}
+							onClick={() => setOpentOrder(!openOrder)}						>
+							Свернуть
+						</button>
 					</div>
 				</div>
 			</section>
