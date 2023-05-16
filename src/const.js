@@ -1,2 +1,2 @@
-export const API_URI = 'https://lush-jolly-debt.glitch.me'
+export const API_URI = 'https://ambitious-spurious-polish.glitch.me/'
 export const POSTFIX = '/api/product'
