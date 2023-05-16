@@ -49,11 +49,11 @@
 
 .button_active {
 	pointer-events: none;
-	background-color: #F04360;
-	color: #fff;
+	border: 1px solid #F04360;
 	transition: all 0.2s;
 	font-weight: 700;
 }
+
 
 .button_active:focus {
 	outline: none;
