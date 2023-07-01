@@ -68,44 +68,38 @@ export const ModalDelivery = () => {
 								className={style.form}
 								onSubmit={handleSubmit}
 							>
-								<label className={style.fieldset}>
-									Имя
-									<Field
-										className={style.input}
-										type="text"
-										name="name"
-										onChange={handleChange}
-										onBlur={handleBlur}
-										value={values.email}
-									/>
-								</label>
-								{errors.name && touched.name &&
-									<div>{errors.name}</div>
-								}
+								<InputField
+									label='Имя'
+									type="text"
+									name="name"
+									handleChange={handleChange}
+									handleBlur={handleBlur}
+									value={values.name}
+									errors={errors.name}
+									touched={touched.name}
+								/>
 								<InputField
 									label='Телефон'
 									type="tel"
 									name="phone"
 									handleChange={handleChange}
-									onBlur={handleBlur}
+									handleBlur={handleBlur}
 									value={values.phone}
 									errors={errors.phone}
 									touched={touched.phone}
 								/>
-								{/* <label className={style.fieldset}>
-									Телефон
-									<Field
-										className={style.input}
-										type="tel"
-										name="phone"
-										onChange={handleChange}
-										onBlur={handleBlur}
-										value={values.phone}
-									/>
-								</label>
-								{errors.phone && touched.phone &&
-									<div>{errors.phone}</div>
-								} */}
+								<fieldset className={style.fieldset_radio}>
+									<label className={style.label}>
+										<Field
+											className={style.radio}
+											type='radio'
+											name='format'
+											value='pickup'
+											onChange={handleChange}
+										/>
+										<span>Самовывоз</span>
+									</label>
+								</fieldset>
 								<button
 									className={style.submit}
 									type='submit'

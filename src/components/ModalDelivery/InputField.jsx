@@ -26,9 +26,8 @@ export default function InputField({
 					value={value}
 				/>
 			</label>
-			{errors && touched ? <div>{errors}</div> : null}
 			{errors && touched &&
-				<div style={{ color: red }}>{errors}</div>
+				<div style={{ color: 'red' }}>{errors}</div>
 			}
 		</>
 	)
