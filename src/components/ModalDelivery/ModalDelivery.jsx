@@ -2,27 +2,31 @@ import classNames from 'classnames';
 import style from './ModalDelivery.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../store/modalDelivery/modalDeliverySlice';
-import { submitForm, updateFormValue } from '../../store/form/formSlice';
+import { Formik, Form, Field } from 'formik';
+import { validateDeliveryForm } from './validateDeliveryForm';
+import { submitForm } from './response';
+import { clearOrder } from '../../store/order/orderSlice';
+import InputField from './InputField';
 
 export const ModalDelivery = () => {
 	const { isOpen } = useSelector(state => state.modal)
-	const form = useSelector(state => state.form)
 	const { orderList } = useSelector(state => state.order)
 	const dispatch = useDispatch()
 
-	const handleInputChange = (e) => {
-		dispatch(updateFormValue({
-			field: e.target.name,
-			value: e.target.value,
-		}))
-	}
+	// const handleInputChange = (e) => {
+	// 	dispatch(updateFormValue({
+	// 		field: e.target.name,
+	// 		value: e.target.value,
+	// 	}))
+	// }
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		dispatch(submitForm({ ...form, orderList }))
-	}
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault()
+	// 	dispatch(submitForm({ ...form, orderList }))
+	// }
 
 	return isOpen && (
+
 		<div
 			className={style.modal}
 			onClick={({ target, currentTarget }) => {
@@ -33,8 +37,86 @@ export const ModalDelivery = () => {
 			<div className={style.mdelivery}>
 				<div className={style.container}>
 					<h2 className={style.title}>Доставка</h2>
-
-					<form className={style.form} id='delivery' onSubmit={handleSubmit}>
+					<Formik
+						initialValues={{
+							name: '',
+							phone: '',
+							format: 'delivery',
+							adress: '',
+							floor: '',
+							intercom: '',
+							comments: '',
+						}}
+						validate={validateDeliveryForm}
+						onSubmit={
+							(values) => {
+								submitForm(values)
+								dispatch(clearOrder())
+								dispatch(closeModal())
+							}
+						}
+					>
+						{({
+							values,
+							errors,
+							touched,
+							handleChange,
+							handleBlur,
+							handleSubmit,
+						}) => (
+							<Form
+								className={style.form}
+								onSubmit={handleSubmit}
+							>
+								<label className={style.fieldset}>
+									Имя
+									<Field
+										className={style.input}
+										type="text"
+										name="name"
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.email}
+									/>
+								</label>
+								{errors.name && touched.name &&
+									<div>{errors.name}</div>
+								}
+								<InputField
+									label='Телефон'
+									type="tel"
+									name="phone"
+									handleChange={handleChange}
+									onBlur={handleBlur}
+									value={values.phone}
+									errors={errors.phone}
+									touched={touched.phone}
+								/>
+								{/* <label className={style.fieldset}>
+									Телефон
+									<Field
+										className={style.input}
+										type="tel"
+										name="phone"
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.phone}
+									/>
+								</label>
+								{errors.phone && touched.phone &&
+									<div>{errors.phone}</div>
+								} */}
+								<button
+									className={style.submit}
+									type='submit'
+									disabled={!Object.keys(touched).length || Object.keys(errors).length}
+								>
+									Оформить
+								</button>
+							</Form>
+						)}
+					</Formik>
+					{/* <form className={style.form} id='delivery' onSubmit={handleSubmit}>
 						<fieldset className={style.fieldset}>
 							<input
 								className={style.input}
@@ -119,11 +201,8 @@ export const ModalDelivery = () => {
 								onChange={handleInputChange}
 							/>
 						</fieldset>
-					</form>
+					</form> */}
 
-					<button className={style.submit} type='submit' form='delivery'>
-						Оформить
-					</button>
 				</div>
 
 				<button

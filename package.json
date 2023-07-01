@@ -12,6 +12,7 @@
 		"@fontsource/lobster": "^4.5.11",
 		"@headlessui/react": "^1.7.13",
 		"@reduxjs/toolkit": "^1.9.3",
+		"formik": "^2.4.2",
 		"imagekitio-react": "^2.0.0",
 		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
