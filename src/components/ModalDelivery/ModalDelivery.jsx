@@ -7,26 +7,15 @@ import { validateDeliveryForm } from './validateDeliveryForm';
 import { submitForm } from './response';
 import { clearOrder } from '../../store/order/orderSlice';
 import InputField from './InputField';
+import RadioButton from './RadioButton';
 
 export const ModalDelivery = () => {
 	const { isOpen } = useSelector(state => state.modal)
 	const { orderList } = useSelector(state => state.order)
 	const dispatch = useDispatch()
 
-	// const handleInputChange = (e) => {
-	// 	dispatch(updateFormValue({
-	// 		field: e.target.name,
-	// 		value: e.target.value,
-	// 	}))
-	// }
-
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault()
-	// 	dispatch(submitForm({ ...form, orderList }))
-	// }
 
 	return isOpen && (
-
 		<div
 			className={style.modal}
 			onClick={({ target, currentTarget }) => {
@@ -89,17 +78,65 @@ export const ModalDelivery = () => {
 									touched={touched.phone}
 								/>
 								<fieldset className={style.fieldset_radio}>
-									<label className={style.label}>
-										<Field
-											className={style.radio}
-											type='radio'
-											name='format'
-											value='pickup'
-											onChange={handleChange}
-										/>
-										<span>Самовывоз</span>
-									</label>
+									<RadioButton
+										label='Самовывоз'
+										value='pickup'
+										handleChange={handleChange}
+									/>
+									<RadioButton
+										label='Доставка'
+										value='delivery'
+										handleChange={handleChange}
+									/>
 								</fieldset>
+								{values.format === 'delivery' && (
+									<>
+										<InputField
+											type="text"
+											name="adress"
+											placeholder='Улица, дом, квартира'
+											handleChange={handleChange}
+											handleBlur={handleBlur}
+											value={values.adress}
+											errors={errors.adress}
+											touched={touched.adress}
+										/>
+										<InputField
+											type="text"
+											name="floor"
+											placeholder='Этаж'
+											handleChange={handleChange}
+											value={values.floor}
+										/>
+										<InputField
+											type="text"
+											name="intercom"
+											placeholder='Домофон'
+											handleChange={handleChange}
+											value={values.intercom}
+										/>
+									</>
+								)}
+
+								{/* <input
+											className={classNames(style.input, style.input_half)}
+											type='number'
+											name='floor'
+											value={form.floor}
+											placeholder='Этаж'
+											onChange={handleInputChange}
+										/>
+										<input
+											className={classNames(style.input, style.input_half)}
+											type='number'
+											name='intercom'
+											value={form.intercom}
+											placeholder='Домофон'
+											onChange={handleInputChange}
+										/> */}
+
+
+
 								<button
 									className={style.submit}
 									type='submit'
@@ -230,6 +267,6 @@ export const ModalDelivery = () => {
 					</svg>
 				</button>
 			</div>
-		</div>
+		</div >
 	)
 }

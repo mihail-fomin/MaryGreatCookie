@@ -1,4 +1,5 @@
 import { Field } from 'formik';
+import classNames from 'classnames';
 import style from './ModalDelivery.module.css';
 
 
@@ -8,10 +9,7 @@ export default function InputField({
 	type,
 	name,
 	value,
-	errors,
-	touched,
 	handleChange,
-	handleBlur,
 }) {
 
 	return (
@@ -19,18 +17,14 @@ export default function InputField({
 			<label className={style.fieldset}>
 				{label}
 				<Field
-					className={style.input}
+					className={classNames(style.input, style.input_half)}
 					placeholder={placeholder}
 					type={type}
 					name={name}
 					onChange={handleChange}
-					onBlur={handleBlur}
 					value={value}
 				/>
 			</label>
-			{errors && touched &&
-				<div style={{ color: 'red' }}>{errors}</div>
-			}
 		</>
 	)
 }

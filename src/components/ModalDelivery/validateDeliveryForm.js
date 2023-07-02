@@ -10,6 +10,7 @@ export const validateDeliveryForm = (values) => {
 		errors.name = 'Некорректное имя'
 	}
 
+
 	if (!values.phone) {
 		errors.phone = 'Заполните поле "Телефон"';
 	} else if (
@@ -18,8 +19,8 @@ export const validateDeliveryForm = (values) => {
 		errors.phone = 'Некорректный телефон'
 	}
 
-	if (!values.phone) {
-		errors.phone = 'Заполните поле "Телефон"';
+	if (values.format === 'delivery' && !values.adress) {
+		errors.adress = 'Заполните поле "Адрес"';
 	}
 
 	return errors
