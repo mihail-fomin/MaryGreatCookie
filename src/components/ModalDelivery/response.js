@@ -1,21 +1,37 @@
 
 
-export async function submitForm(data) {
-	const { name, phone } = data
-	console.log('name: ', name);
+export async function submitForm(data, order) {
+	console.log('data: ', data);
+	console.log('order: ', order);
+	// const { name, phone } = data
 
-	let formatBody = ({ name, phone }) => `
+	let formatBody = ({
+		name,
+		phone,
+		format,
+		floor,
+		intercom,
+		comments,
+		order,
+	}) => `
 		<strong>Заявка с сайта</strong>
 		<b>Отправитель:</b> <i>${name}</i>
 		<b>Телефон:</b> <i>${phone}</i>
+		<b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'}
+		<b>Этаж:</b> <i>${floor}</i>
+		<b>Домофон:</b> <i>${intercom}</i>
+		<b>Комментарии к заказу:</b> <i>${comments}</i>
+		<b>Товары:</b> ${JSON.stringify(order)}	
 	`
-	// <b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'} n/
-	// <b>Комментарии к заказу:</b> ${comments}
 
 	let body = formatBody({
-		name: name,
-		phone: phone,
-
+		name: data.name,
+		phone: data.phone,
+		format: data.format,
+		floor: data.floor,
+		intercom: data.intercom,
+		comments: data.comments,
+		order: order,
 	})
 
 

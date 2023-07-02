@@ -8,7 +8,6 @@ export default function RadioButton({
 }) {
 
 	return (
-
 		<label className={style.label}>
 			<Field
 				className={style.radio}
@@ -19,6 +18,5 @@ export default function RadioButton({
 			/>
 			<span>{label}</span>
 		</label>
-
 	)
 }
