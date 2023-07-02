@@ -31,7 +31,7 @@ export default function ModalForm() {
 				(values) => {
 					submitForm(values, orderList)
 					Swal.fire({
-						position: 'top-end',
+						position: 'center',
 						icon: 'success',
 						title: 'Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.',
 						showConfirmButton: false,
