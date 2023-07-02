@@ -10,6 +10,7 @@ export async function submitForm(data, order) {
 		phone,
 		format,
 		floor,
+		adress,
 		intercom,
 		comments,
 		order,
@@ -18,6 +19,7 @@ export async function submitForm(data, order) {
 		<b>Отправитель:</b> <i>${name}</i>
 		<b>Телефон:</b> <i>${phone}</i>
 		<b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'}
+		<b>Адресс:</b> <i>${adress}</i>
 		<b>Этаж:</b> <i>${floor}</i>
 		<b>Домофон:</b> <i>${intercom}</i>
 		<b>Комментарии к заказу:</b> <i>${comments}</i>
@@ -28,6 +30,7 @@ export async function submitForm(data, order) {
 		name: data.name,
 		phone: data.phone,
 		format: data.format,
+		adress: data.adress,
 		floor: data.floor,
 		intercom: data.intercom,
 		comments: data.comments,
