@@ -18,9 +18,6 @@ async function getToken() {
 }
 
 export async function submitForm(data, order) {
-  console.log('data: ', data);
-  console.log('order: ', order);
-
 
   let formatBody = ({
     name,
@@ -35,13 +32,23 @@ export async function submitForm(data, order) {
 		<strong>Заявка с сайта</strong>
 		<b>Отправитель:</b> <i>${name}</i>
 		<b>Телефон:</b> <i>${phone}</i>
-		<b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'}
+		<b>Способ передачи:</b> ${format === 'delivery' ? `<i>Доставка</i> ` : `<i>Самовывоз</i>`}
 		<b>Адрес:</b> <i>${adress}</i>
 		<b>Этаж:</b> <i>${floor}</i>
 		<b>Домофон:</b> <i>${intercom}</i>
 		<b>Комментарии к заказу:</b> <i>${comments}</i>
-		<b>Товары:</b> ${JSON.stringify(order)}	
+		${printOrder(order)}	
 	`
+
+  let printOrder = (order) => {
+    let str = `<b>Товары: </b>`
+    order.forEach(el => {
+      let item = db.find(item => item.id === el.id)
+      str += `<b>${item.title}</b>`;
+      str += ` <i>в количестве ${el.count} шт,</i>` + "\n";
+    })
+    return str
+  }
 
   let body = formatBody({
     name: data.name,
