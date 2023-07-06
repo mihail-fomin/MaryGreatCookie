@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
 
 export default function ModalForm() {
 	const dispatch = useDispatch()
-	const { orderList } = useSelector(state => state.order)
+	const { orderList, totalPrice, totalCount } = useSelector(state => state.order)
 
 	return (
 		<Formik
@@ -29,7 +29,7 @@ export default function ModalForm() {
 			validate={validateDeliveryForm}
 			onSubmit={
 				(values) => {
-					submitForm(values, orderList)
+					submitForm(values, orderList, totalPrice, totalCount)
 					Swal.fire({
 						position: 'center',
 						icon: 'success',
@@ -95,7 +95,6 @@ export default function ModalForm() {
 							touched={touched}
 						/>
 					)}
-
 					<Field
 						as='textarea'
 						className={classNames(style.comments)}
@@ -106,7 +105,6 @@ export default function ModalForm() {
 						placeholder='Комментарии к заказу'
 						onChange={handleChange}
 					/>
-
 					<button
 						className={style.submit}
 						type='submit'

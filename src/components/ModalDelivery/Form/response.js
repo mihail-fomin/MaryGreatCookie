@@ -1,6 +1,6 @@
 import db from '../../../assets/db'
 
-export async function submitForm(data, order) {
+export async function submitForm(data, order, totalPrice, totalCount) {
 
 	let formatBody = ({
 		name,
@@ -11,6 +11,8 @@ export async function submitForm(data, order) {
 		intercom,
 		comments,
 		order,
+		totalPrice,
+		totalCount
 	}) => `
 		<strong>Заявка с сайта</strong>
 		<b>Отправитель:</b> <i>${name}</i>
@@ -20,7 +22,8 @@ export async function submitForm(data, order) {
 		<b>Этаж:</b> <i>${floor}</i>
 		<b>Домофон:</b> <i>${intercom}</i>
 		<b>Комментарии к заказу:</b> <i>${comments}</i>
-		${printOrder(order)}	
+		${printOrder(order)}
+		Итого: <b>${totalCount}</b> товаров на сумму <b>${totalPrice}</b> рублей	
 	`
 
 	let printOrder = (order) => {
@@ -42,6 +45,8 @@ export async function submitForm(data, order) {
 		intercom: data.intercom,
 		comments: data.comments,
 		order: order,
+		totalPrice: totalPrice,
+		totalCount: totalCount,
 	})
 
 	try {
