@@ -1,7 +1,7 @@
 import style from './ModalDelivery.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../store/modalDelivery/modalDeliverySlice';
-import OrderForm from './OrderForm'
+import OrderForm from './Form/OrderForm'
 
 export const ModalDelivery = () => {
 	const { isOpen } = useSelector(state => state.modal)

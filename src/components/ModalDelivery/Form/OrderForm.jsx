@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModal } from '../../store/modalDelivery/modalDeliverySlice';
+import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
 import { Formik, Form, Field } from 'formik';
 import { validateDeliveryForm } from './validateDeliveryForm';
 import { submitForm } from './response';
-import { clearOrder } from '../../store/order/orderSlice';
+import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
 import OrderDeliveryForm from './OrderDeliveryForm';
@@ -29,7 +29,13 @@ export default function ModalForm() {
       onSubmit={
         (values) => {
           submitForm(values, orderList)
-          alert('Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.')
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.',
+            showConfirmButton: false,
+            timer: 2500
+          })
           dispatch(clearOrder())
           dispatch(closeModal())
         }

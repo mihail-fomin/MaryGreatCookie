@@ -1,4 +1,4 @@
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 import { Field } from 'formik';
 
 export default function RadioButton({

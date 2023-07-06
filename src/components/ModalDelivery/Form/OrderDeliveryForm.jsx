@@ -1,6 +1,6 @@
 import HalfInput from "./HalfInput";
 import InputField from "./InputField";
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 
 
 export default function OrderDeliveryForm({
