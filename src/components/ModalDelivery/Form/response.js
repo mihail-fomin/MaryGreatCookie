@@ -1,4 +1,4 @@
-import db from '../../assets/db'
+import db from '../../../assets/db'
 
 export async function submitForm(data, order) {
 

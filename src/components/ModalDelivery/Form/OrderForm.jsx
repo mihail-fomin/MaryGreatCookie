@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModal } from '../../store/modalDelivery/modalDeliverySlice';
+import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
 import { Formik, Form, Field } from 'formik';
 import { validateDeliveryForm } from './validateDeliveryForm';
 import { submitForm } from './response';
-import { clearOrder } from '../../store/order/orderSlice';
+import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
 import OrderDeliveryForm from './OrderDeliveryForm';
@@ -95,18 +95,18 @@ export default function ModalForm() {
 							touched={touched}
 						/>
 					)}
-					<fieldset className={style.fieldset}>
-						<Field
-							as='textarea'
-							className={classNames(style.comments)}
-							rows={3}
-							type='text'
-							name='comments'
-							value={values.comments}
-							placeholder='Комментарии к заказу'
-							onChange={handleChange}
-						/>
-					</fieldset>
+
+					<Field
+						as='textarea'
+						className={classNames(style.comments)}
+						rows={3}
+						type='text'
+						name='comments'
+						value={values.comments}
+						placeholder='Комментарии к заказу'
+						onChange={handleChange}
+					/>
+
 					<button
 						className={style.submit}
 						type='submit'

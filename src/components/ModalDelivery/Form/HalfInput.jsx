@@ -1,6 +1,6 @@
 import { Field } from 'formik';
 import classNames from 'classnames';
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 
 
 export default function HalfInput({

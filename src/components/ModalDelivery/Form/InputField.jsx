@@ -1,5 +1,5 @@
 import { Field } from 'formik';
-import style from './ModalDelivery.module.css';
+import style from '../ModalDelivery.module.css';
 
 
 export default function InputField({
