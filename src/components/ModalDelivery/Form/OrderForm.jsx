@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import * as React from 'react'
 import style from '../ModalDelivery.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
@@ -14,6 +14,7 @@ import Swal from 'sweetalert2'
 export default function ModalForm() {
 	const dispatch = useDispatch()
 	const { orderList, totalPrice, totalCount } = useSelector(state => state.order)
+	const [startDate, setStartDate] = React.useState(new Date());
 
 	return (
 		<Formik
@@ -95,9 +96,16 @@ export default function ModalForm() {
 							touched={touched}
 						/>
 					)}
+					<input
+						type="date"
+						name="date"
+						value={startDate}
+						min={startDate}
+						onChange={(date) => setStartDate(date)}
+					/>
 					<Field
 						as='textarea'
-						className={classNames(style.comments)}
+						className={style.comments}
 						rows={3}
 						type='text'
 						name='comments'

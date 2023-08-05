@@ -1,38 +1,35 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { API_URI, POSTFIX } from "../../const"
+import { createSlice } from "@reduxjs/toolkit"
+import db from "../../assets/db";
 
 const initialState = {
-	products: [],
-	error: '',
-	await: true,
+	products: db,
 };
-
-export const productRequestAsync = createAsyncThunk(
-	'product/fetch',
-	(category) =>
-		fetch(`${API_URI}${POSTFIX}?category=${category}`)
-			.then(req => req.json())
-			.catch(error => ({ error }))
-)
 
 const productSlice = createSlice({
 	name: 'product',
 	initialState,
-	extraReducers: builder => {
-		builder
-			.addCase(productRequestAsync.pending, state => {
-				state.error = ''
-			})
-			.addCase(productRequestAsync.fulfilled, (state, action) => {
-				state.error = ''
-				state.await = false
-				state.products = action.payload
-			})
-			.addCase(productRequestAsync.rejected, (state, action) => {
-				state.error = action.payload.error
-				state.await = false
-			})
+	reducers: {
+		getProducts(state) {
+			const activeProducts = store.getState().category.activeCategory;
+      
+		},
+		// extraReducers: builder => {
+		// 	builder
+		// 		.addCase(productRequestAsync.pending, state => {
+		// 			state.error = ''
+		// 		})
+		// 		.addCase(productRequestAsync.fulfilled, (state, action) => {
+		// 			state.error = ''
+		// 			state.await = false
+		// 			state.products = action.payload
+		// 		})
+		// 		.addCase(productRequestAsync.rejected, (state, action) => {
+		// 			state.error = action.payload.error
+		// 			state.await = false
+		// 		})
+		// }
 	}
 })
 
+export const { getProducts } = productSlice.actions
 export default productSlice.reducer

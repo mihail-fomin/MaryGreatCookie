@@ -81,7 +81,6 @@ const formSlice = createSlice({
 			.addCase(submitForm.rejected, (state, action) => {
 				state.status = 'failed'
 				state.error = action.payload
-
 			})
 	}
 })
