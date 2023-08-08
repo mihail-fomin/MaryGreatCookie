@@ -2,36 +2,46 @@ export default [
 	{
 		"title": "chocolate",
 		"rus": "Шоколад",
-		"image": "img/chocolate.png"
+		"image": "chocolate.png"
 	},
 	{
 		"title": "cupcakes",
 		"rus": "Капкейки",
-		"image": "img/cupcake.png"
+		"image": "cupcake.png"
 	},
 	{
 		"title": "macarons",
 		"rus": "Макаронс",
-		"image": "img/macarons.png"
+		"image": "macarons.png"
 	},
 	{
 		"title": "trifle",
 		"rus": "Трайфлы",
-		"image": "img/trifle.png"
+		"image": "trifle.png"
 	},
 	{
 		"title": "cakes",
 		"rus": "Торты",
-		"image": "img/cake.png"
+		"image": "cake.png"
 	},
 	{
 		"title": "bento",
 		"rus": "Бенто-Торты",
-		"image": "img/bento.png"
+		"image": "bento.png"
 	},
 	{
 		"title": "cheese-cake",
 		"rus": "Чизкейк",
-		"image": "img/cheesecake.png"
-	}
+		"image": "cheesecake.png"
+	},
+  {
+		"title": "cake-pops",
+		"rus": "Кейк-попсы",
+		"image": "cheesecake.png"
+	},
+  {
+		"title": "cake-pops",
+		"rus": "Зефир",
+		"image": "cheesecake.png"
+	},
 ]

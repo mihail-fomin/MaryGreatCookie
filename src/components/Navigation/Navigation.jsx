@@ -9,6 +9,8 @@ export const Navigation = () => {
 	const { category, activeCategory } = useSelector((state) => state.category)
 	const dispatch = useDispatch()
 
+const iconsPath = 'src/assets/img/categories/'
+
 	return (
 		<nav className={style.navigation}>
 			<Container className={style.container}>
@@ -18,7 +20,7 @@ export const Navigation = () => {
 							<button className={classNames(
 								style.button,
 								activeCategory === i ? style.button_active : '')}
-								style={{ backgroundImage: `url(${API_URI}/${item.image})` }}
+								style={{ backgroundImage: `url(${iconsPath+item.image})` }}
 								onClick={() => {
 									dispatch(changeCategory({ indexCategory: i }))
 								}}
