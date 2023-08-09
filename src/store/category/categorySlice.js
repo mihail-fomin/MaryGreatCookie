@@ -4,7 +4,7 @@ import category from '../../assets/category'
 
 const initialState = {
 	category: category,
-	error: '',
+	// error: '',
 	activeCategory: 0,
 };
 

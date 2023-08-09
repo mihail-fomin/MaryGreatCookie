@@ -2,8 +2,9 @@ import style from './Order.module.css/'
 import { OrderGoods } from '../OrderGoods/OrderGoods'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { orderRequestAsync } from '../../store/order/orderSlice'
+// import { orderRequestAsync } from '../../store/order/orderSlice'
 import { openModal } from '../../store/modalDelivery/modalDeliverySlice'
+import { loadFromLocalStorage } from '../../store/order/orderSlice'
 import classNames from 'classnames'
 
 
@@ -14,7 +15,7 @@ export const Order = () => {
 	const [openOrder, setOpentOrder] = useState(false)
 
 	useEffect(() => {
-		dispatch(orderRequestAsync())
+		dispatch(loadFromLocalStorage())
 	}, [orderList.length])
 
 	return (
