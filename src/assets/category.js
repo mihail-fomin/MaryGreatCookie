@@ -34,14 +34,14 @@ export default [
 		"rus": "Чизкейк",
 		"image": "cheesecake.png"
 	},
-  // {
-	// 	"title": "cake-pops",
-	// 	"rus": "Кейк-попсы",
-	// 	"image": "cheesecake.png"
-	// },
-  // {
-	// 	"title": "cake-pops",
-	// 	"rus": "Зефир",
-	// 	"image": "cheesecake.png"
-	// },
+  {
+		"title": "cake-pops",
+		"rus": "Кейк-попсы",
+		"image": "cheesecake.png"
+	},
+  {
+		"title": "cake-pops",
+		"rus": "Зефир",
+		"image": "cheesecake.png"
+	},
 ]
