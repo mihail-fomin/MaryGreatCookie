@@ -8,7 +8,7 @@ export const Navigation = () => {
 	const { category, activeCategory } = useSelector((state) => state.category)
 	const dispatch = useDispatch()
 
-const iconsPath = 'src/assets/img/categories/'
+const iconsPath = 'src/categories/'
 
 	return (
 		<nav className={style.navigation}>

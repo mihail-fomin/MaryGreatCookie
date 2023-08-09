@@ -21,10 +21,9 @@ export const Catalog = () => {
 								{
 									db.map((item) => (
 										item.category == category[activeCategory].title &&
-                      <li key={item.id} className={style.item} >
-											  <CatalogProduct item={item} />
-										  </li>
-                    
+											<li key={item.id} className={style.item} >
+												<CatalogProduct item={item} />
+											</li>                    
 									))
 								}
 							</ul>
