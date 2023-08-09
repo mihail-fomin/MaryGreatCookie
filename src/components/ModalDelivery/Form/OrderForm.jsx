@@ -9,7 +9,6 @@ import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
 import OrderDeliveryForm from './OrderDeliveryForm';
-import Swal from 'sweetalert2'
 
 export default function ModalForm() {
 	const dispatch = useDispatch()
@@ -31,13 +30,7 @@ export default function ModalForm() {
 			onSubmit={
 				(values) => {
 					submitForm(values, orderList, totalPrice, totalCount)
-					Swal.fire({
-						position: 'center',
-						icon: 'success',
-						title: 'Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.',
-						showConfirmButton: false,
-						timer: 2500
-					})
+          alert('Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.')
 					dispatch(clearOrder())
 					dispatch(closeModal())
 				}
