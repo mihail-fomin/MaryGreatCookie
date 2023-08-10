@@ -37,11 +37,11 @@ export default [
   {
 		"title": "cake-pops",
 		"rus": "Кейк-попсы",
-		"image": "cheesecake.png"
+		"image": "cake-pops.png"
 	},
   {
-		"title": "cake-pops",
+		"title": "marshmallow",
 		"rus": "Зефир",
-		"image": "cheesecake.png"
+		"image": "marshmallow.png"
 	},
 ]
