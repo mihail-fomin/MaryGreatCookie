@@ -7,11 +7,13 @@ import { changeCategory } from '../../store/category/categorySlice'
 export const Navigation = () => {
 	const { category, activeCategory } = useSelector((state) => state.category)
 	const dispatch = useDispatch()
-
-const iconsPath = 'src/assets/img/categories/'
-
+  
+  function getImageUrl(name) {
+    return new URL(`../../assets/img/categories/${name}`, import.meta.url).href
+  }
+  
 	return (
-		<nav className={style.navigation}>
+    <nav className={style.navigation}>
 			<Container className={style.container}>
 				<ul className={style.list}>
 					{category.map((item, i) =>
@@ -19,7 +21,7 @@ const iconsPath = 'src/assets/img/categories/'
 							<button className={classNames(
 								style.button,
 								activeCategory === i ? style.button_active : '')}
-								style={{ backgroundImage: `url(${iconsPath+item.image})` }}
+								style={{ backgroundImage: `url(${getImageUrl(item.image)})` }}
 								onClick={() => {
 									dispatch(changeCategory({ indexCategory: i }))
 								}}
