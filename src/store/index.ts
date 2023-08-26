@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import categoryReducer from './category/categorySlice'
 import productReducer from './product/productSlice'
-import orderReducer, { localStorageMiddleware } from './order/orderSlice'
+import orderReducer from './order/orderSlice'
 import modalReducer from './modalDelivery/modalDeliverySlice'
 import formReducer from './form/formSlice'
 
@@ -13,6 +13,9 @@ export const store = configureStore({
 		modal: modalReducer,
 		form: formReducer,
 	},
-	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware().concat(localStorageMiddleware)
 });
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
