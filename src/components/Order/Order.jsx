@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { orderRequestAsync } from '../../store/order/orderSlice'
 import { openModal } from '../../store/modalDelivery/modalDeliverySlice'
 import classNames from 'classnames'
-import db from '../../assets/db'
 
 
 export const Order = () => {
@@ -33,10 +32,8 @@ export const Order = () => {
 
 				<div className={style.wrap_list}>
 					<ul className={style.list}>
-
 						{orderGoods.map((item) => <OrderGoods key={item.id} {...item} />)}
-
-          </ul>
+					</ul>
 
 					<div className={style.total}>
 						<p>Итого</p>

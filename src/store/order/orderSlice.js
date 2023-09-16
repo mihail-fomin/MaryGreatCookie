@@ -34,19 +34,18 @@ const orderSlice = createSlice({
 	initialState,
 	reducers: {
 		addProduct: (state, action) => {
-			const itemInOrderList = state.orderList.find(
+			const productOrderList = state.orderList.find(
 				item => item.id === action.payload.id
 			)
 
-			if (!!itemInOrderList) {
-        console.log('itemInOrderList.count: ', itemInOrderList.count);
-				itemInOrderList.count += 1
+			if (productOrderList) {
+				productOrderList.count += 1
 
-				const itemInOrderGoods = state.orderGoods.find(
+				const productOrderGoods = state.orderGoods.find(
 					item => item.id === action.payload.id,
 				)
 
-				itemInOrderGoods.count = itemInOrderList.count
+				productOrderGoods.count = productOrderList.count
 
 				state.totalCount = sumCount(state.orderGoods)
 				state.totalPrice = sumPrice(state.orderGoods)
@@ -55,18 +54,18 @@ const orderSlice = createSlice({
 			}
 		},
 		removeProduct: (state, action) => {
-			const itemInOrderList = state.orderList.find(
+			const productOrderList = state.orderList.find(
 				item => item.id === action.payload.id
 			)
 
-			if (itemInOrderList.count > 1) {
-				itemInOrderList.count -= 1
+			if (productOrderList.count > 1) {
+				productOrderList.count -= 1
 
-				const itemInOrderGoods = state.orderGoods.find(
+				const productOrderGoods = state.orderGoods.find(
 					item => item.id === action.payload.id,
 				)
 
-				itemInOrderGoods.count = itemInOrderList.count
+				productOrderGoods.count = productOrderList.count
 
 				state.totalCount = sumCount(state.orderGoods)
 				state.totalPrice = sumPrice(state.orderGoods)
