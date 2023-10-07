@@ -1,9 +1,10 @@
 import { API_URI, POSTFIX } from "../../../const";
+import db from "../../../store/db";
 
 
 async function getToken() {
   try {
-    const tokenResponse = await fetch(`${API_URII_URI}${POSTFIX}/token`);
+    const tokenResponse = await fetch(`${API_URI}${POSTFIX}/token`);
     if (!tokenResponse.ok) {
       throw new Error(`Ошибка ${tokenResponse.statusText}`);
     }
@@ -18,7 +19,7 @@ async function getToken() {
   }
 }
 
-export async function submitForm(data, order) {
+export async function submitForm(data, order, totalPrice, totalCount) {
 
   let formatBody = ({
     name,
@@ -29,24 +30,31 @@ export async function submitForm(data, order) {
     intercom,
     comments,
     order,
+    totalPrice,
+    totalCount
   }) => `
 		<strong>Заявка с сайта</strong>
 		<b>Отправитель:</b> <i>${name}</i>
 		<b>Телефон:</b> <i>${phone}</i>
 		<b>Способ передачи:</b> ${format === 'delivery' ? `<i>Доставка</i> ` : `<i>Самовывоз</i>`}
-		<b>Адрес:</b> <i>${adress}</i>
-		<b>Этаж:</b> <i>${floor}</i>
-		<b>Домофон:</b> <i>${intercom}</i>
-		<b>Комментарии к заказу:</b> <i>${comments}</i>
-		${printOrder(order)}	
-	`
+    ${format === 'delivery'
+      ? `<b>Адрес:</b> <i>${adress}</i>
+		     <b>Этаж:</b> <i>${floor}</i>
+		     <b>Домофон:</b> <i>${intercom}</i>`
+      : ``}
+    ${comments.length > 0
+      ? `<b> Комментарии к заказу:</b> <i>${comments}</i>`
+      : ``}
+		${printOrder(order)}
+    Итого: <b>${totalCount}</b> товаров на сумму <b>${totalPrice}</b> рублей	
+  `
 
   let printOrder = (order) => {
-    let str = `<b>Товары: </b>`
+    let str = `<b> Товары: </> `
     order.forEach(el => {
       let item = db.find(item => item.id === el.id)
-      str += `<b>${item.title}</b>`;
-      str += ` <i>в количестве ${el.count} шт,</i>` + "\n";
+      str += `<b> ${item.title}</> `;
+      str += ` <i> в количестве ${el.count} шт,</> ` + "\n";
     })
     return str
   }
@@ -60,6 +68,8 @@ export async function submitForm(data, order) {
     intercom: data.intercom,
     comments: data.comments,
     order: order,
+    totalPrice: totalPrice,
+    totalCount: totalCount,
   })
 
 
