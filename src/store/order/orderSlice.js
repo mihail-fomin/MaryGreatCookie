@@ -39,7 +39,6 @@ const orderSlice = createSlice({
       )
 
       if (!!itemInOrderList) {
-        console.log('itemInOrderList.count: ', itemInOrderList.count);
         itemInOrderList.count += 1
 
         const itemInOrderGoods = state.orderGoods.find(

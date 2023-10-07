@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { orderRequestAsync } from '../../store/order/orderSlice'
 import { openModal } from '../../store/modalDelivery/modalDeliverySlice'
 import classNames from 'classnames'
-import db from '../../assets/db'
+import db from '../../store/db'
 
 
 export const Order = () => {

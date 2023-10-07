@@ -258,7 +258,7 @@ export default [
     "weight": 700,
     "description": "Мягкий и нежный бенто-торт для бабушки, которая, наверняка, оценит ваше внимание. Классический бисквит, арахисовый крем-чиз с яркой начинкой из домашней карамели. Любая бабушка будет рада чаепитию с таким тортиком 💓",
     "category": "bento",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/photo_2023-04-19_18-45-33.jpg?updatedAt=1681915732704"
+    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/photo_2023-04-19_18-45-33.jpg?updatedAt=1696683838544"
   },
   {
     "id": "0701",
@@ -285,6 +285,6 @@ export default [
     "weight": 125,
     "description": "Позвольте нежному и натуральному зефиру из смородины таять во рту 💓",
     "category": "marshmallow",
-    "image": "https://ik.imagekit.io/i7lh9dcka/marshmallow/marshmallow.jpg?updatedAt=1691816251456"
+    "image": "https://ik.imagekit.io/i7lh9dcka/marshmallow/marshmallow.jpg?updatedAt=1696684094686"
   }
 ]
