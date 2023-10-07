@@ -12,7 +12,7 @@ import OrderDeliveryForm from './OrderDeliveryForm';
 
 export default function ModalForm() {
   const dispatch = useDispatch()
-  const { orderList } = useSelector(state => state.order)
+  const { orderList, totalPrice, totalCount } = useSelector(state => state.order)
 
   return (
     <Formik
@@ -28,14 +28,8 @@ export default function ModalForm() {
       validate={validateDeliveryForm}
       onSubmit={
         (values) => {
-          submitForm(values, orderList)
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.',
-            showConfirmButton: false,
-            timer: 2500
-          })
+          submitForm(values, orderList, totalPrice, totalCount)
+          alert('Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.')
           dispatch(clearOrder())
           dispatch(closeModal())
         }
@@ -94,18 +88,16 @@ export default function ModalForm() {
               touched={touched}
             />
           )}
-          <fieldset className={style.fieldset}>
-            <Field
-              as='textarea'
-              className={classNames(style.comments)}
-              rows={3}
-              type='text'
-              name='comments'
-              value={values.comments}
-              placeholder='Комментарии к заказу'
-              onChange={handleChange}
-            />
-          </fieldset>
+          <Field
+            as='textarea'
+            className={classNames(style.comments)}
+            rows={3}
+            type='text'
+            name='comments'
+            value={values.comments}
+            placeholder='Комментарии к заказу'
+            onChange={handleChange}
+          />
           <button
             className={style.submit}
             type='submit'
