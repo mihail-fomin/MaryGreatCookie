@@ -1,8 +1,9 @@
-import { API_URI, POSTFIX } from "../../const";
+import { API_URI, POSTFIX } from "../../../const";
+
 
 async function getToken() {
   try {
-    const tokenResponse = await fetch(`${API_URI}${POSTFIX}/token`);
+    const tokenResponse = await fetch(`${API_URII_URI}${POSTFIX}/token`);
     if (!tokenResponse.ok) {
       throw new Error(`Ошибка ${tokenResponse.statusText}`);
     }
