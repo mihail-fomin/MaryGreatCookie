@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 
 import style from './Navigation.module.css'
+import categoryTranslations from '../../assets/category.json'
 import { Container } from '../Container/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetCategoriesQuery, changeCategory, selectActiveCategory } from '../../store/category/categoryApi';
@@ -13,6 +14,16 @@ export const Navigation = () => {
   if (isLoading) return <h1>Loading...</h1>
 
   // const { category, activeCategory } = useSelector((state) => state.category)
+
+  function getCategoryTranslate(categories) {
+    for (const category of categories) {
+      const categoryObject = categoryTranslations.find(el => el.title === category)
+      return categoryObject.rus
+    }
+  }
+
+
+  console.log(getCategoryTranslate(data));
 
   function getImageUrl(name) {
     return new URL(`../../assets/img/categories/${name}.png`, import.meta.url).href
@@ -29,7 +40,6 @@ export const Navigation = () => {
                   style.button,
                   activeCategory === i ? style.button_active : '')}
                 style={{ backgroundImage: `url(${getImageUrl(item)})` }}
-
                 onClick={() => dispatch(changeCategory({ indexCategory: i }))}
               >
                 {item}
