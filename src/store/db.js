@@ -6,7 +6,7 @@ export default [
     "weight": 66,
     "description": "Набор шоколадных клубничных дисков с сублимированными ягодами (клубника, малина) и шоколадными шариками криспи.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_disk.jpg?updatedAt=1670513910965"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_disk.jpg?updatedAt=1670513910965"
   },
   {
     "id": "0102",
@@ -15,7 +15,7 @@ export default [
     "weight": 100,
     "description": "Клубничный бельгийский шоколад с сублимированными ягодами (клубника и малина) и шоколадными шариками криспи.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_2-2?updatedAt=1670515170803"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_2-2?updatedAt=1670515170803"
   },
   {
     "id": "0103",
@@ -24,7 +24,7 @@ export default [
     "weight": 100,
     "description": "Молочный итальянский шоколад с воздушным рисом в карамели и апельсиновыми цукатами.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_3-2?updatedAt=1670515602983"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_3-2?updatedAt=1670515602983"
   },
   {
     "id": "0104",
@@ -33,7 +33,7 @@ export default [
     "weight": 100,
     "description": "Белый бельгийский шоколад с миндалем и кокосовой стружкой.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_4-2?updatedAt=1670598377321"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_4-2?updatedAt=1670598377321"
   },
   {
     "id": "0105",
@@ -42,7 +42,7 @@ export default [
     "weight": 100,
     "description": "Белый бельгийский шоколад с кусочками сублимированного ананаса и кокосовой стружкой.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_5-2?updatedAt=1670598632572"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/chocolate_5-2?updatedAt=1670598632572"
   },
   {
     "id": "0106",
@@ -51,7 +51,7 @@ export default [
     "weight": 100,
     "description": "Новый праздник - новая идея для шоколада 🥰 Так родилась плитка белого шоколада с съедобными цветами на основе молочного шоколада. А оттеняет этот вкус легкая кислинка сублимированной малины и клубники с хрустящими шариками криспи🌸",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/1677840963_19600422.jpg?updatedAt=1681828605828"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/1677840963_19600422.jpg?updatedAt=1681828605828"
   },
   {
     "id": "0107",
@@ -60,7 +60,7 @@ export default [
     "weight": 70,
     "description": "Чтобы получить новогоднее настроение, достаточно немного волшебства. Теплое одеяло, новогодний фильм и шоко бомбочка с теплым молоком согреют вас и подарят новогоднее настроение!",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/1671381136_73866343.jpg?updatedAt=1681828605854"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/1671381136_73866343.jpg?updatedAt=1681828605854"
   },
   {
     "id": "0108",
@@ -69,7 +69,7 @@ export default [
     "weight": 150,
     "description": "Подарочный набор ручной работы: Ассорти конфет на основе молочного шоколада. Плитка белого шоколада с кокосом и ананасом",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/1676781482_94079268.jpg?updatedAt=1681828605883"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/1676781482_94079268.jpg?updatedAt=1681828605883"
   },
   {
     "id": "0109",
@@ -78,7 +78,7 @@ export default [
     "weight": 150,
     "description": "Подарочный набор шоколада ручной работы: Шоколадные конфеты на основе молочного шоколада. Молочный шоколад с сублимированным апельсином и арахисовыми лепестками, воздушным рисом.",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/1676781282_88828480.jpg?updatedAt=1681828605824"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/1676781282_88828480.jpg?updatedAt=1681828605824"
   },
   {
     "id": "0110",
@@ -87,7 +87,7 @@ export default [
     "weight": 100,
     "description": "Вкус: абрикос, арахисовые лепестки, воздушный рис в карамели",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/milk_with_white.jpg?updatedAt=1696681043505"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/milk_with_white.jpg?updatedAt=1696681043505"
   },
   {
     "id": "0111",
@@ -96,7 +96,7 @@ export default [
     "weight": 100,
     "description": "Вкус: ананас + кокоc",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/whie_with_ruby_and_lemon.jpg?updatedAt=1696681195744"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/whie_with_ruby_and_lemon.jpg?updatedAt=1696681195744"
   },
   {
     "id": "0112",
@@ -105,7 +105,7 @@ export default [
     "weight": 100,
     "description": "Вкус: черешня, малина, клубника, шоколадные шарики криспи",
     "category": "chocolate",
-    "image": "https://ik.imagekit.io/i7lh9dcka/chocolate/ruby.jpg?updatedAt=1696681310103"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/chocolate/ruby.jpg?updatedAt=1696681310103"
   },
   {
     "id": "0201",
@@ -114,7 +114,7 @@ export default [
     "weight": 480,
     "description": "",
     "category": "cupcakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cupcakes/cupcake_4.jpg?updatedAt=1681828966631"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cupcakes/cupcake_4.jpg?updatedAt=1681828966631"
   },
   {
     "id": "0202",
@@ -123,7 +123,7 @@ export default [
     "weight": 540,
     "description": "",
     "category": "cupcakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cupcakes/1678261213_22510348.jpg?updatedAt=1681829133082"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cupcakes/1678261213_22510348.jpg?updatedAt=1681829133082"
   },
   {
     "id": "0203",
@@ -132,7 +132,7 @@ export default [
     "weight": 960,
     "description": "",
     "category": "cupcakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cupcakes/photo_2023-04-19_18-45-26.jpg?updatedAt=1681915846892"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cupcakes/photo_2023-04-19_18-45-26.jpg?updatedAt=1681915846892"
   },
   {
     "id": "0204",
@@ -141,7 +141,7 @@ export default [
     "weight": 540,
     "description": "",
     "category": "cupcakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cupcakes/photo_2023-04-19_18-45-27.jpg?updatedAt=1681915846817"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cupcakes/photo_2023-04-19_18-45-27.jpg?updatedAt=1681915846817"
   },
   {
     "id": "0301",
@@ -150,7 +150,7 @@ export default [
     "weight": 90,
     "description": "",
     "category": "macarons",
-    "image": "https://ik.imagekit.io/i7lh9dcka/macarons/photo_2023-04-19_18-45-32.jpg?updatedAt=1681915802543"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/macarons/photo_2023-04-19_18-45-32.jpg?updatedAt=1681915802543"
   },
   {
     "id": "0302",
@@ -159,7 +159,7 @@ export default [
     "weight": 90,
     "description": "",
     "category": "macarons",
-    "image": "https://ik.imagekit.io/i7lh9dcka/macarons/photo_2023-04-19_18-45-52.jpg?updatedAt=1681915813046"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/macarons/photo_2023-04-19_18-45-52.jpg?updatedAt=1681915813046"
   },
   {
     "id": "0401",
@@ -168,7 +168,7 @@ export default [
     "weight": 400,
     "description": "Шоколадный бисквит, классический крем чиз, домашняя карамель, арахис",
     "category": "trifle",
-    "image": "https://ik.imagekit.io/i7lh9dcka/trifle/trifle_1?updatedAt=1671465928729"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/trifle/trifle_1?updatedAt=1671465928729"
   },
   {
     "id": "0402",
@@ -177,7 +177,7 @@ export default [
     "weight": 400,
     "description": "Печенье савоярди в кофейной пропитке, крем на основе маскарпоне, какао",
     "category": "trifle",
-    "image": "https://ik.imagekit.io/i7lh9dcka/trifle/1645559686_8268152.jpg?updatedAt=1681829547820"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/trifle/1645559686_8268152.jpg?updatedAt=1681829547820"
   },
   {
     "id": "0403",
@@ -186,7 +186,7 @@ export default [
     "weight": 400,
     "description": "Миндальный бисквит, кокосовый крем-чиз, миндаль, сгущённое молоко",
     "category": "trifle",
-    "image": "https://ik.imagekit.io/i7lh9dcka/trifle/trifle_2?updatedAt=1671466016507"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/trifle/trifle_2?updatedAt=1671466016507"
   },
   {
     "id": "0404",
@@ -195,7 +195,7 @@ export default [
     "weight": 400,
     "description": "",
     "category": "trifle",
-    "image": "https://ik.imagekit.io/i7lh9dcka/trifle/raspberry-chocolate.jpg?updatedAt=1696681914226"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/trifle/raspberry-chocolate.jpg?updatedAt=1696681914226"
   },
   {
     "id": "0501",
@@ -204,7 +204,7 @@ export default [
     "weight": 1000,
     "description": "Шоколадный бисквит, хрустящий слой, классический крем-чиз, шоколадный крем-чиз",
     "category": "cakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_2.jpg?updatedAt=1681829043105"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_2.jpg?updatedAt=1681829043105"
   },
   {
     "id": "0502",
@@ -213,7 +213,7 @@ export default [
     "weight": 1000,
     "description": "Шоколадный бисквит на шампанском, мусс Кир-рояль, взбитый черносмородиновый ганаш",
     "category": "cakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_3.jpg?updatedAt=1681829043072"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_3.jpg?updatedAt=1681829043072"
   },
   {
     "id": "0503",
@@ -222,7 +222,7 @@ export default [
     "weight": 1000,
     "description": "Шоколадный бисквит, малиновая или вишневая начинка (на выбор), классический крем-чиз",
     "category": "cakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_4.jpg?updatedAt=1681829043087"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_4.jpg?updatedAt=1681829043087"
   },
   {
     "id": "0504",
@@ -231,7 +231,7 @@ export default [
     "weight": 1000,
     "description": "апельсиновый шифоновый бисквит, кули манго-маракуйя, классический крем-чиз",
     "category": "cakes",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_1.jpg?updatedAt=1681829041219"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_1.jpg?updatedAt=1681829041219"
   },
   {
     "id": "0601",
@@ -240,7 +240,7 @@ export default [
     "weight": 700,
     "description": "Супер блинный. Супер шоколадный. Сливочная нежность и яркий вкус шоколада устроят для вас праздник. К торту рекомендуется чашка натурального кофе без сахара.",
     "category": "bento",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/1678600558_12609870.jpg?updatedAt=1681829041195"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/1678600558_12609870.jpg?updatedAt=1681829041195"
   },
   {
     "id": "0602",
@@ -249,7 +249,7 @@ export default [
     "weight": 700,
     "description": "Мягкий и нежный бенто-торт для мамы, которая, наверняка, оценит ваше внимание. Классический бисквит, арахисовый крем-чиз с яркой начинкой из домашней карамели. Любая мама будет рада чаепитию с таким тортиком 💓",
     "category": "bento",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_11.jpg?updatedAt=1681829041343"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_11.jpg?updatedAt=1681829041343"
   },
   {
     "id": "0603",
@@ -258,7 +258,7 @@ export default [
     "weight": 700,
     "description": "Мягкий и нежный бенто-торт для бабушки, которая, наверняка, оценит ваше внимание. Классический бисквит, арахисовый крем-чиз с яркой начинкой из домашней карамели. Любая бабушка будет рада чаепитию с таким тортиком 💓",
     "category": "bento",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/photo_2023-04-19_18-45-33.jpg?updatedAt=1696683838544"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/photo_2023-04-19_18-45-33.jpg?updatedAt=1696683838544"
   },
   {
     "id": "0701",
@@ -267,7 +267,7 @@ export default [
     "weight": 1300,
     "description": "Мягкий и нежный бенто-торт для мамы, которая, наверняка, оценит ваше внимание. Классический бисквит, арахисовый крем-чиз с яркой начинкой из домашней карамели. Любая мама будет рада чаепитию с таким тортиком 💓",
     "category": "cheese-cake",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_9.jpg?updatedAt=1681831555840"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cakes/cake_9.jpg?updatedAt=1681831555840"
   },
   {
     "id": "0801",
@@ -276,7 +276,7 @@ export default [
     "weight": 200,
     "description": "Если вы любители пирожного «картошка» или любите кейк-попсы, вы обязательно оцените вкус этого десерта 🤤",
     "category": "cake-pops",
-    "image": "https://ik.imagekit.io/i7lh9dcka/cake-pops/cake-pops.jpg?updatedAt=1691816272071"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/cake-pops/cake-pops.jpg?updatedAt=1691816272071"
   },
   {
     "id": "0901",
@@ -285,6 +285,6 @@ export default [
     "weight": 125,
     "description": "Позвольте нежному и натуральному зефиру из смородины таять во рту 💓",
     "category": "marshmallow",
-    "image": "https://ik.imagekit.io/i7lh9dcka/marshmallow/marshmallow.jpg?updatedAt=1696684094686"
+    "imageUrl": "https://ik.imagekit.io/i7lh9dcka/marshmallow/marshmallow.jpg?updatedAt=1696684094686"
   }
 ]

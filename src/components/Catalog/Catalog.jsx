@@ -7,14 +7,14 @@ import { CatalogProduct } from "./CatalogProduct/CatalogProduct";
 import db from "../../store/db";
 
 export const Catalog = () => {
-  const { category, activeCategory } = useSelector(state => state.category)
+  // const { category, activeCategory } = useSelector(state => state.category)
 
   return (
     <section className={style.catalog}>
       <Container>
         <div className={style.container}>
           <Order />
-          <div className={style.wrapper}>
+          {/* <div className={style.wrapper}>
             <h2 className={style.title}>{category[activeCategory]?.rus}</h2>
             <div className={style.wrap_list}>
               <ul className={style.list}>
@@ -28,7 +28,7 @@ export const Catalog = () => {
                 }
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>

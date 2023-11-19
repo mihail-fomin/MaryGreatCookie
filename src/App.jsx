@@ -8,17 +8,17 @@ import { ModalDelivery } from "./components/ModalDelivery/ModalDelivery"
 
 export const App = () => {
 
-	return (
-		<Provider store={store}>
-			<Header />
-			<main>
-				<Navigation />
-				<Catalog />
-			</main>
-			<Footer />
-			<ModalDelivery />
-		</Provider>
-	)
+  return (
+    <Provider store={store}>
+      <Header />
+      <main>
+        <Navigation />
+        {/* <Catalog /> */}
+      </main>
+      <Footer />
+      <ModalDelivery />
+    </Provider>
+  )
 }
 
 

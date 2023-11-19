@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
 import { Formik, Form, Field } from 'formik';
 import { validateDeliveryForm } from './validateDeliveryForm';
-import { submitForm } from './response';
+import { submitForm } from '../../../store/form/formSlice';
 import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
@@ -28,7 +28,7 @@ export default function ModalForm() {
       validate={validateDeliveryForm}
       onSubmit={
         (values) => {
-          submitForm(values, orderList, totalPrice, totalCount)
+          submitForm(values, orderList)
           alert('Ваш заказ будет обработан в ближайшее время. Мы обязательно с Вами свяжемся.')
           dispatch(clearOrder())
           dispatch(closeModal())

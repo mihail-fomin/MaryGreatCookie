@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { closeModal } from "../modalDelivery/modalDeliverySlice"
 import { clearOrder } from "../order/orderSlice"
-import { API_URI, POSTFIX } from "../../const"
+import { API_URI } from "../../const"
 
 const initialState = {
   name: '',
@@ -13,41 +13,32 @@ const initialState = {
   comments: '',
 }
 
-// let formatBody = ({ name, phone, format }) => `
-// <strong>Заявка с сайта</strong>n/
-// <b>Отправитель:</b> ${name}n/
-// <b>Телефон:</b> ${phone}n/
-// <b>Способ передачи:</b> ${format === 'delivery' ? 'Доставка' : 'Самовывоз'} n/
-// <b>Комментарии к заказу:</b> ${comments}
-// `
-
-// let body = formatBody({
-// 	name: this.name.value,
-// 	phone: this.phone.value,
-// 	format: this.format.value,
-// 	data:
-// })
 
 export const submitForm = createAsyncThunk(
   'form/submit',
-  async (data, { dispatch, rejectWithValue }) => {
+  async (userData, { dispatch, rejectWithValue }) => {
     try {
-      const token = await fetch(`${API_URI}${POSTFIX}/token`)
-      const response = await fetch(`https://api.telegram.org/${token}/sendMessage`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            chat_id: "-1001759583869",
-            text: data,
-            parse_mode: "html",
-          })
-        }
-      )
+
+      let body = {
+        name: userData.name,
+        phone: userData.phone,
+        format: userData.format,
+        adress: userData.adress,
+        floor: userData.floor,
+        intercom: userData.intercom,
+        comments: userData.comments,
+        order,
+      }
+
+      const response = await fetch(`${API_URI}/api/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body
+      })
       if (!response.ok) {
-        throw new Error(`Ошибка ${response.statusText}`)
+        throw new Error(`Ошибка ${response.statusText}`);
       }
 
       dispatch(clearOrder())
