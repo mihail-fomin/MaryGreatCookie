@@ -11,7 +11,6 @@ const productSlice = createSlice({
   reducers: {
     getProducts(state) {
       const activeProducts = store.getState().category.activeCategory;
-
     },
     // extraReducers: builder => {
     // 	builder
