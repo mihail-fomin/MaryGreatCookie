@@ -1,25 +1,34 @@
 import classNames from 'classnames'
 
 import style from './Navigation.module.css'
-import categoryTranslations from '../../assets/category.json'
+import { getCategoryTranslate } from '../../utils/getTranslate'
 import { Container } from '../Container/Container'
 import { useDispatch, useSelector } from 'react-redux'
-import { useGetCategoriesQuery, changeCategory, selectActiveCategory } from '../../store/category/categoryApi';
+import {
+  useGetCategoriesQuery,
+  selectActiveCategoryIndex,
+  changeCategoryIndex,
+  setActiveCategoryName
+} from '../../store/category/categoryApi';
 
 export const Navigation = () => {
-  const { data = [], isLoading } = useGetCategoriesQuery()
-  const activeCategory = useSelector(selectActiveCategory);
   const dispatch = useDispatch()
+
+  const { data = [], isLoading } = useGetCategoriesQuery()
+
+  const activeCategoryIndex = useSelector(selectActiveCategoryIndex);
 
   if (isLoading) return <h1>Loading...</h1>
 
-  function getCategoryTranslate(category) {
-    const categoryObject = categoryTranslations.find(el => el.title === category)
-    return categoryObject.rus
-  }
 
   function getImageUrl(name) {
-    return new URL(`../../assets/img/categories/${name}.png`, import.meta.url).href
+    return new URL(`../../assets/img/categories/${getCategoryTranslate(name)}`,
+      import.meta.url).href
+  }
+
+  const handleCategoryChange = (index) => {
+    dispatch(changeCategoryIndex({ indexCategory: index }));
+    // dispatch(setActiveCategoryName({ categoryName: data[index] }));
   }
 
   return (
@@ -31,11 +40,11 @@ export const Navigation = () => {
               <button
                 className={classNames(
                   style.button,
-                  activeCategory === i ? style.button_active : '')}
+                  activeCategoryIndex === i ? style.button_active : '')}
                 style={{ backgroundImage: `url(${getImageUrl(item)})` }}
-                onClick={() => dispatch(changeCategory({ indexCategory: i }))}
+                onClick={() => handleCategoryChange(i)}
               >
-                {getCategoryTranslate(item) || item}
+                {item}
               </button>
             </li>
           )}

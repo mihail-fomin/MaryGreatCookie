@@ -7,7 +7,7 @@
   {
     "title": "cupcakes",
     "rus": "Капкейки",
-    "image": "cupcake.png"
+    "image": "cupcakes.png"
   },
   {
     "title": "macarons",
@@ -22,17 +22,17 @@
   {
     "title": "cakes",
     "rus": "Торты",
-    "image": "cake.png"
+    "image": "cakes.png"
   },
   {
     "title": "bento",
-    "rus": "Бенто-Торты",
+    "rus": "Бенто-торты",
     "image": "bento.png"
   },
   {
     "title": "cheese-cake",
     "rus": "Чизкейк",
-    "image": "cheesecake.png"
+    "image": "cheese-cake.png"
   },
   {
     "title": "cake-pops",

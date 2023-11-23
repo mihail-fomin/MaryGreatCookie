@@ -17,16 +17,21 @@ export const categoriesApi = createApi({
 export const categorySlice = createSlice({
   name: 'category',
   initialState: {
-    activeCategory: 0,
+    activeCategoryIndex: 0,
+    activeCategoryName: '',
   },
   reducers: {
-    changeCategory: (state, action) => {
-      state.activeCategory = action.payload.indexCategory;
+    changeCategoryIndex: (state, action) => {
+      state.activeCategoryIndex = action.payload.indexCategory;
+    },
+    setActiveCategoryName: (state, action) => {
+      state.activeCategoryName = action.payload.categoryName;
     },
   },
 });
 
 export const { useGetCategoriesQuery } = categoriesApi;
 
-export const { changeCategory } = categorySlice.actions;
-export const selectActiveCategory = (state) => state.category.activeCategory;
+export const { changeCategoryIndex, setActiveCategoryName } = categorySlice.actions;
+export const selectActiveCategoryIndex = (state) => state.category.activeCategoryIndex;
+export const selectActiveCategoryName = (state) => state.category.activeCategoryName;
