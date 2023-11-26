@@ -1,4 +1,3 @@
-import { createSlice } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { API_URI } from '../../const'
@@ -6,13 +5,22 @@ import { API_URI } from '../../const'
 
 export const catalogApi = createApi({
   reducerPath: 'catalogApi',
-  baseQuery: fetchBaseQuery({ baseUrl: API_URI }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API_URI,
+    onError: (error) => {
+      console.error('API request error:', error);
+    },
+  }),
   endpoints: (build) => ({
-    getProducts: build.query({
-      query: (category) => `/api/productsByCategory/${category}`
+    getProductsByCategory: build.query({
+      query: (category) =>
+        category
+          ? `/api/productsByCategory/${category}`
+          : `/api/product`
     })
   })
 })
 
 
-export const { useGetProductsQuery } = catalogApi;
+
+export const { useGetProductsByCategoryQuery } = catalogApi;

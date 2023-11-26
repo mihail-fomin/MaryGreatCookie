@@ -13,7 +13,7 @@ export const App = () => {
       <Header />
       <main>
         <Navigation />
-        {/* <Catalog /> */}
+        <Catalog />
       </main>
       <Footer />
       <ModalDelivery />

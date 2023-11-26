@@ -5,7 +5,7 @@ import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
 import { Formik, Form, Field } from 'formik';
 import { validateDeliveryForm } from './validateDeliveryForm';
 import { submitForm } from '../../../store/form/formSlice';
-import { clearOrder } from '../../../store/order/orderSlice';
+// import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
 import OrderDeliveryForm from './OrderDeliveryForm';

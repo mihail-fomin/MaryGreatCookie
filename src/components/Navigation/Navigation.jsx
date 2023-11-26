@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from 'classnames'
 
 import style from './Navigation.module.css'
@@ -28,7 +29,7 @@ export const Navigation = () => {
 
   const handleCategoryChange = (index) => {
     dispatch(changeCategoryIndex({ indexCategory: index }));
-    // dispatch(setActiveCategoryName({ categoryName: data[index] }));
+    dispatch(setActiveCategoryName({ categoryName: data[index] }));
   }
 
   return (

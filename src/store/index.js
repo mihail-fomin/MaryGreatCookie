@@ -6,13 +6,15 @@ import modalReducer from './modalDelivery/modalDeliverySlice'
 import formReducer from './form/formSlice'
 import { categoriesApi } from './category/categoryApi'
 import { catalogApi } from './product/productApi'
+import { orderApi } from './order/orderApi'
 
 
 export const store = configureStore({
   reducer: {
     [categoriesApi.reducerPath]: categoriesApi.reducer,
-    category: categorySlice.reducer,
     [catalogApi.reducerPath]: catalogApi.reducer,
+    [orderApi.reducerPath]: orderApi.reducer,
+    category: categorySlice.reducer,
     order: orderReducer,
     modal: modalReducer,
     form: formReducer,
@@ -21,5 +23,6 @@ export const store = configureStore({
     getDefaultMiddleware()
       .concat(categoriesApi.middleware)
       .concat(catalogApi.middleware)
+      .concat(orderApi.middleware)
       .concat(localStorageMiddleware)
 });

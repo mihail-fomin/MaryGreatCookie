@@ -1,9 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
 import { API_URI, POSTFIX } from "../../const";
 import { sumCount, sumPrice } from "../../utils/calcCountAndPrice";
 
+const orderList = JSON.parse(localStorage.getItem('order') || '[]')
+
+export const prepareQuery = orderList.map(order => order.id)
+
 const initialState = {
-  orderList: JSON.parse(localStorage.getItem('order') || '[]'),
+  orderList,
   orderGoods: [],
   totalPrice: 0,
   totalCount: 0,
@@ -19,89 +24,16 @@ export const localStorageMiddleware = store => next => action => {
   return nextAction
 }
 
-export const orderRequestAsync = createAsyncThunk(
-  'order/fetch',
-  (_, { getState }) => {
-    const listId = getState().order.orderList.map(item => item.id)
-    return fetch(`${API_URI}${POSTFIX}/${listId}`)
-      .then(req => req.json())
-      .catch(error => ({ error }))
-  }
-)
 
 const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    addProduct: (state, action) => {
-      const itemInOrderList = state.orderList.find(
-        item => item.id === action.payload.id
-      )
-
-      if (!!itemInOrderList) {
-        itemInOrderList.count += 1
-
-        const itemInOrderGoods = state.orderGoods.find(
-          item => item.id === action.payload.id,
-        )
-
-        itemInOrderGoods.count = itemInOrderList.count
-
-        state.totalCount = sumCount(state.orderGoods)
-        state.totalPrice = sumPrice(state.orderGoods)
-      } else {
-        state.orderList.push({ ...action.payload, count: 1 })
-      }
-    },
-    removeProduct: (state, action) => {
-      const itemInOrderList = state.orderList.find(
-        item => item.id === action.payload.id
-      )
-
-      if (itemInOrderList.count > 1) {
-        itemInOrderList.count -= 1
-
-        const itemInOrderGoods = state.orderGoods.find(
-          item => item.id === action.payload.id,
-        )
-
-        itemInOrderGoods.count = itemInOrderList.count
-
-        state.totalCount = sumCount(state.orderGoods)
-        state.totalPrice = sumPrice(state.orderGoods)
-      } else {
-        state.orderList = state.orderList.filter(item => item.id !== action.payload.id)
-      }
-    },
+    addProduct: (state, action) => {},
+    removeProduct: (state, action) => {},
     clearOrder: (state) => {
-      state.orderList = []
-      state.orderGoods = []
     }
   },
-  extraReducers: builder => {
-    builder
-      .addCase(orderRequestAsync.pending, (state) => {
-        state.error = ''
-      })
-      .addCase(orderRequestAsync.fulfilled, (state, action) => {
-        const orderGoods = state.orderList.map(item => {
-          const product = action.payload
-            .find(product => product.id === item.id)
-
-          product.count = item.count
-
-          return product
-        })
-        state.error = ''
-        state.orderGoods = orderGoods
-
-        state.totalCount = sumCount(orderGoods)
-        state.totalPrice = sumPrice(orderGoods)
-      })
-      .addCase(orderRequestAsync.rejected, (state, action) => {
-        state.error = action.payload.error
-      })
-  }
 })
 
 export const { addProduct, removeProduct, clearOrder } = orderSlice.actions;

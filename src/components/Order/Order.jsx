@@ -2,21 +2,41 @@ import style from './Order.module.css/'
 import { OrderGoods } from '../OrderGoods/OrderGoods'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { orderRequestAsync } from '../../store/order/orderSlice'
 import { openModal } from '../../store/modalDelivery/modalDeliverySlice'
 import classNames from 'classnames'
-import db from '../../store/db'
+import { prepareQuery, useGetProductsByIdsQuery, } from '../../store/order/orderApi'
 
 
 export const Order = () => {
+  const { data: productData, isLoading } = useGetProductsByIdsQuery(prepareQuery);
+  console.log('orderData: ', productData);
+
   const { totalPrice, totalCount, orderList, orderGoods } = useSelector(state => state.order)
+  console.log('orderList: ', orderList);
   const dispatch = useDispatch()
 
   const [openOrder, setOpentOrder] = useState(false)
 
-  useEffect(() => {
-    dispatch(orderRequestAsync())
-  }, [orderList.length])
+  function renderOrderGoods() {
+    return productData ? (
+      productData.map((item) => {
+        console.log('item: ', item);
+        return <OrderGoods key={item.id} {...item} />;
+      })
+    ) : null;
+  }
+
+  const renderTotal = () => {
+    return (
+      <div className={style.total}>
+        <p>Итого</p>
+        <p>
+          <span className={style.amount}>{totalPrice}</span>
+          <span className={style.currency}>&nbsp;₽</span>
+        </p>
+      </div>
+    );
+  };
 
   return (
     <div className={classNames(style.order, openOrder ? style.order_open : '')}>
@@ -24,7 +44,7 @@ export const Order = () => {
         <div className={style.header}
           tabIndex="0"
           role="button"
-          onClick={() => setOpentOrder(!openOrder)}
+          onClick={() => setOpentOrder(prevState => !prevState)}
         >
           <h2 className={style.title}>Корзина</h2>
 
@@ -32,19 +52,9 @@ export const Order = () => {
         </div>
 
         <div className={style.wrap_list}>
-          <ul className={style.list}>
+          <ul className={style.list}>{renderOrderGoods()}</ul>
 
-            {orderGoods.map((item) => <OrderGoods key={item.id} {...item} />)}
-
-          </ul>
-
-          <div className={style.total}>
-            <p>Итого</p>
-            <p>
-              <span className={style.amount}>{totalPrice}</span>
-              <span className={style.currency}>&nbsp;₽</span>
-            </p>
-          </div>
+          {renderTotal()}
 
           <button className={style.submit}
             disabled={orderGoods.length === 0}
@@ -57,7 +67,8 @@ export const Order = () => {
             <p className={style.text}>Стоимость доставки будет посчитана позже</p>
             <button
               className={style.close}
-              onClick={() => setOpentOrder(!openOrder)}						>
+              onClick={() => setOpentOrder(prevState => !prevState)}
+            >
               Свернуть
             </button>
           </div>

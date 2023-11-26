@@ -1,85 +1,85 @@
 .navigation {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .container {
-	padding: 0;
-	min-width: 100vw;
+  padding: 0;
+  min-width: 100vw;
 }
 
 .list {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	padding: 0 calc((100vw / 2) - (var(--container) / 2));
-	overflow-x: auto;
-	overflow-y: hidden;
-	column-gap: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  column-gap: 8px;
 }
 
 .list li {
-	margin-bottom: 8px;
-	font-family: 'Lobster', cursive;
+  margin-bottom: 8px;
+  font-family: 'Lobster', cursive;
 }
 
 .button {
-	border-radius: 50px;
-	padding: 7px 8px 7px 40px;
-	font-size: 12px;
-	line-height: 16px;
-	white-space: nowrap;
-	background-color: #FFFFFF;
-	background-repeat: no-repeat;
-	background-size: 24px;
-	background-position: 8px center;
+  min-width: 130px;
+  border-radius: 50px;
+  padding: 7px 8px 7px 40px;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 8px center;
 }
 
 .button:hover,
 .button:focus-visible {
-	outline: 1px solid #F04360;
-	outline-offset: -1px;
+  outline: 1px solid #F04360;
+  outline-offset: -1px;
 }
 
 @supports not selector(:focus-visible) {
-	.button:focus {
-		outline: 1px solid #BA1C36;
-		outline-offset: -1px;
-	}
+  .button:focus {
+    outline: 1px solid #BA1C36;
+    outline-offset: -1px;
+  }
 }
 
 .button_active {
-	pointer-events: none;
-	border: 1px solid #F04360;
-	transition: all 0.2s;
-	font-weight: 700;
+  pointer-events: none;
+  border: 1px solid #F04360;
+  transition: all 0.2s;
+  font-weight: 700;
 }
 
 
 .button_active:focus {
-	outline: none;
+  outline: none;
 }
 
 
 
 @media (min-width: 768px) {
-	.list {
-		column-gap: 12px;
-	}
+  .list {
+    column-gap: 12px;
+  }
 }
 
 @media (min-width: 1024px) {
-	.navigation {
-		margin-bottom: 50px;
-	}
+  .navigation {
+    margin-bottom: 50px;
+  }
 
-	.list {
-		column-gap: 24px;
-	}
+  .list {
+    column-gap: 24px;
+  }
 
-	.button {
-		padding: 9px 14px 9px 46px;
-		font-size: 16px;
-		line-height: 22px;
-		background-position: 14px center;
-	}
+  .button {
+    padding: 9px 14px 9px 46px;
+    font-size: 16px;
+    line-height: 22px;
+    background-position: 14px center;
+  }
 }
