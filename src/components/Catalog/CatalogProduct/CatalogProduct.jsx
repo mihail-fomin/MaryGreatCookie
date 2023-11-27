@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-// import { addProduct } from '../../../store/order/orderSlice'
+import { addProduct } from '../../../store/order/orderSlice'
 import style from './CatalogProduct.module.css'
 
 export const CatalogProduct = ({ item }) => {

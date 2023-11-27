@@ -5,7 +5,6 @@ import { sumCount, sumPrice } from "../../utils/calcCountAndPrice";
 
 const orderList = JSON.parse(localStorage.getItem('order') || '[]')
 
-export const prepareQuery = orderList.map(order => order.id)
 
 const initialState = {
   orderList,
@@ -29,8 +28,34 @@ const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    addProduct: (state, action) => {},
-    removeProduct: (state, action) => {},
+    addProduct: (state, action) => {
+      const itemInOrderList = state.orderList.find(
+        item => item.id === action.payload.id
+      )
+
+      if (itemInOrderList) {
+        itemInOrderList.count++
+      }
+      else {
+        state.orderList.push({ ...action.payload, count: 1 })
+      }
+    },
+    removeProduct: (state, action) => {
+      const itemInOrderList = state.orderList.find(
+        item => item.id === action.payload.id
+      )
+      if (itemInOrderList) {
+        if (itemInOrderList.count > 1) {
+          itemInOrderList.count--
+        }
+        else {
+          state.orderList = state.orderList.filter(
+            item => item.id !== action.payload.id
+          )
+        }
+      }
+
+    },
     clearOrder: (state) => {
     }
   },

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import style from './Count.module.css'
-// import { addProduct, removeProduct } from '../../store/order/orderSlice'
+import { addProduct, removeProduct } from '../../store/order/orderSlice'
 
 export const Count = ({ count, id }) => {
   const dispatch = useDispatch()

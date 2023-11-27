@@ -2,6 +2,7 @@ import { Count } from "../Count/Count"
 import style from './OrderGoods.module.css'
 
 export const OrderGoods = ({ title, price, imageurl, count, id, weight }) => (
+
   <li className={style.item}>
     <div className={style.image_wrapper}>
       <img className={style.image} src={`${imageurl}`} alt={title} />

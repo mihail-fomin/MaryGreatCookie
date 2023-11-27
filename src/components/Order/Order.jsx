@@ -9,7 +9,6 @@ import { prepareQuery, useGetProductsByIdsQuery, } from '../../store/order/order
 
 export const Order = () => {
   const { data: productData, isLoading } = useGetProductsByIdsQuery(prepareQuery);
-  console.log('orderData: ', productData);
 
   const { totalPrice, totalCount, orderList, orderGoods } = useSelector(state => state.order)
   console.log('orderList: ', orderList);
@@ -20,10 +19,13 @@ export const Order = () => {
   function renderOrderGoods() {
     return productData ? (
       productData.map((item) => {
-        console.log('item: ', item);
-        return <OrderGoods key={item.id} {...item} />;
+
+        const itemInOrderList = orderList.find(
+          itemAtOrderList => itemAtOrderList.id === item.id
+        )
+        return <OrderGoods key={item.id} {...item} count={itemInOrderList ? itemInOrderList.count : 0} />
       })
-    ) : null;
+    ) : null
   }
 
   const renderTotal = () => {
