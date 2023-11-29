@@ -14,9 +14,7 @@ export const catalogApi = createApi({
   endpoints: (build) => ({
     getProductsByCategory: build.query({
       query: (category) =>
-        category
-          ? `/api/productsByCategory/${category}`
-          : `/api/product`
+        `/api/productsByCategory/${category}`
     })
   })
 })

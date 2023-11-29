@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { categorySlice } from './category/categoryApi'
-import orderReducer, { localStorageMiddleware } from './order/orderSlice'
+import orderReducer from './order/orderSlice'
 import modalReducer from './modalDelivery/modalDeliverySlice'
 import formReducer from './form/formSlice'
 import { categoriesApi } from './category/categoryApi'
@@ -24,5 +24,5 @@ export const store = configureStore({
       .concat(categoriesApi.middleware)
       .concat(catalogApi.middleware)
       .concat(orderApi.middleware)
-      .concat(localStorageMiddleware)
+  // .concat(localStorageMiddleware)
 });

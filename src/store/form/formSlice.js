@@ -30,16 +30,6 @@ export const submitForm = createAsyncThunk(
         order,
       }
 
-      const response = await fetch(`${API_URI}/api/message`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body
-      })
-      if (!response.ok) {
-        throw new Error(`Ошибка ${response.statusText}`);
-      }
 
       // dispatch(clearOrder())
       dispatch(closeModal())

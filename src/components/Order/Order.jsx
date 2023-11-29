@@ -1,25 +1,22 @@
+import React from "react";
+
 import style from './Order.module.css/'
 import { OrderGoods } from '../OrderGoods/OrderGoods'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
 import { openModal } from '../../store/modalDelivery/modalDeliverySlice'
 import classNames from 'classnames'
-import { prepareQuery, useGetProductsByIdsQuery, } from '../../store/order/orderApi'
 
 
 export const Order = () => {
-  const { data: productData, isLoading } = useGetProductsByIdsQuery(prepareQuery);
-
-  const { totalPrice, totalCount, orderList, orderGoods } = useSelector(state => state.order)
-  console.log('orderList: ', orderList);
   const dispatch = useDispatch()
 
-  const [openOrder, setOpentOrder] = useState(false)
+  const { totalPrice, totalCount, orderList, orderGoods } = useSelector(state => state.order)
+
+  const [openOrder, setOpentOrder] = React.useState(false)
 
   function renderOrderGoods() {
-    return productData ? (
-      productData.map((item) => {
-
+    return Array.isArray(orderGoods) ? (
+      orderGoods.map((item) => {
         const itemInOrderList = orderList.find(
           itemAtOrderList => itemAtOrderList.id === item.id
         )

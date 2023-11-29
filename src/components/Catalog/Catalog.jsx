@@ -10,6 +10,7 @@ import { CatalogProduct } from "./CatalogProduct/CatalogProduct";
 
 
 export const Catalog = () => {
+  const [skip, setSkip] = React.useState(true)
   const dispatch = useDispatch()
   const { data: categoriesData, isLoading: categoriesLoading } = useGetCategoriesQuery();
 
@@ -17,11 +18,14 @@ export const Catalog = () => {
   React.useEffect(() => {
     if (categoriesData && categoriesData.length > 0) {
       dispatch(setActiveCategoryName({ categoryName: categoriesData[0] }));
+      setSkip(prev => !prev)
     }
   }, [categoriesData, dispatch]);
 
   const activeCategory = useSelector(selectActiveCategoryName)
-  const { data, isLoading } = useGetProductsByCategoryQuery(activeCategory)
+  const { data, isLoading } = useGetProductsByCategoryQuery(activeCategory, {
+    skip
+  })
 
 
   return (
@@ -45,6 +49,6 @@ export const Catalog = () => {
           </div>
         </div>
       </Container>
-    </section >
+    </section>
   )
 }

@@ -23,7 +23,7 @@ export const CatalogProduct = ({ item }) => {
         className={style.add}
         type="button"
         onClick={() => {
-          dispatch(addProduct({ id: item.id }))
+          dispatch(addProduct(item))
         }}
       >
         Добавить

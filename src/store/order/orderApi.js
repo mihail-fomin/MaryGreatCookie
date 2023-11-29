@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { API_URI } from '../../const'
 
-const orderList = JSON.parse(localStorage.getItem('order') || '[]')
+// const orderList = JSON.parse(localStorage.getItem('order') || '[]')
 
-export const prepareQuery = orderList.map(order => order.id).join(',')
+// export const prepareQuery = orderList.map(order => order.id).join(',')
 
 export const orderApi = createApi({
   reducerPath: 'orderApi',
@@ -14,6 +14,7 @@ export const orderApi = createApi({
       console.error('orderApi request error:', error)
     },
   }),
+  refetchOnMountOrArgChange: true,
   endpoints: (build) => ({
     getProductsByIds: build.query({
       query: (ids) =>

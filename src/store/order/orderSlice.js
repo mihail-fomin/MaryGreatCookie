@@ -2,33 +2,42 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
 import { API_URI, POSTFIX } from "../../const";
 import { sumCount, sumPrice } from "../../utils/calcCountAndPrice";
+import { orderApi, } from './orderApi';
+
 
 const orderList = JSON.parse(localStorage.getItem('order') || '[]')
 
-
 const initialState = {
   orderList,
+  prepareQuery: '',
   orderGoods: [],
   totalPrice: 0,
   totalCount: 0,
   error: [],
 };
 
-export const localStorageMiddleware = store => next => action => {
-  const nextAction = next(action)
-  if (nextAction.type.startsWith('order/')) {
-    const orderList = store.getState().order.orderList
-    localStorage.setItem('order', JSON.stringify(orderList))
-  }
-  return nextAction
-}
+// export const localStorageMiddleware = store => next => action => {
+//   const nextAction = next(action)
+//   if (nextAction.type.startsWith('order/')) {
+//     const orderList = store.getState().order.orderList
+//     localStorage.setItem('order', JSON.stringify(orderList))
+//   }
+//   return nextAction
+// }
 
 
 const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
+    loadFromLocalStorage(state) {
+      const storageData = localStorage.getItem('order')
+      if (!!storageData) {
+        state.orderGoods = JSON.parse(storageData)
+      }
+    },
     addProduct: (state, action) => {
+      console.log('action: ', action.payload);
       const itemInOrderList = state.orderList.find(
         item => item.id === action.payload.id
       )
@@ -37,7 +46,9 @@ const orderSlice = createSlice({
         itemInOrderList.count++
       }
       else {
-        state.orderList.push({ ...action.payload, count: 1 })
+        state.orderList.push({ id: action.payload.id, count: 1 })
+        state.orderGoods.push(action.payload)
+        state.prepareQuery = state.orderList.map(order => order.id).join(',')
       }
     },
     removeProduct: (state, action) => {
@@ -52,14 +63,19 @@ const orderSlice = createSlice({
           state.orderList = state.orderList.filter(
             item => item.id !== action.payload.id
           )
+          state.orderGoods = state.orderGoods.filter(
+            item => item.id !== action.payload.id
+          )
+          state.prepareQuery = state.orderList.map(order => order.id).join(',')
         }
       }
-
     },
     clearOrder: (state) => {
+      state.orderList = []
+      state.orderGoods = []
     }
   },
 })
 
-export const { addProduct, removeProduct, clearOrder } = orderSlice.actions;
+export const { addProduct, loadFromLocalStorage, removeProduct, clearOrder, } = orderSlice.actions;
 export default orderSlice.reducer
