@@ -2,10 +2,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { API_URI } from '../../const'
 
-// const orderList = JSON.parse(localStorage.getItem('order') || '[]')
-
-// export const prepareQuery = orderList.map(order => order.id).join(',')
-
 export const orderApi = createApi({
   reducerPath: 'orderApi',
   baseQuery: fetchBaseQuery({

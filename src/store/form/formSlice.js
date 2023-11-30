@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { closeModal } from "../modalDelivery/modalDeliverySlice"
-// import { clearOrder } from "../order/orderSlice"
+import { clearOrder } from "../order/orderSlice"
 import { API_URI } from "../../const"
 
 const initialState = {
@@ -30,8 +30,15 @@ export const submitForm = createAsyncThunk(
         order,
       }
 
+      const response = await fetch(`${API_URI}/api/message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body
+      })
 
-      // dispatch(clearOrder())
+      dispatch(clearOrder())
       dispatch(closeModal())
 
       return await response.json()
@@ -63,7 +70,6 @@ const formSlice = createSlice({
       .addCase(submitForm.rejected, (state, action) => {
         state.status = 'failed'
         state.error = action.payload
-
       })
   }
 })
