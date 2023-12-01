@@ -37,7 +37,6 @@ const orderSlice = createSlice({
       }
     },
     addProduct: (state, action) => {
-      console.log('action: ', action.payload);
       const itemInOrderList = state.orderList.find(
         item => item.id === action.payload.id
       )
