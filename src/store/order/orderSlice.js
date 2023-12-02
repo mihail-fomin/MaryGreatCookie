@@ -49,6 +49,7 @@ const orderSlice = createSlice({
         state.orderGoods.push(action.payload)
         state.prepareQuery = state.orderList.map(order => order.id).join(',')
       }
+      state.totalCount = sumCount(state.orderList)
     },
     removeProduct: (state, action) => {
       const itemInOrderList = state.orderList.find(
@@ -68,6 +69,7 @@ const orderSlice = createSlice({
           state.prepareQuery = state.orderList.map(order => order.id).join(',')
         }
       }
+    state.totalCount = sumCount(state.orderList)
     },
     clearOrder: (state) => {
       state.orderList = []
@@ -76,5 +78,5 @@ const orderSlice = createSlice({
   },
 })
 
-export const { addProduct, loadFromLocalStorage, removeProduct, clearOrder, } = orderSlice.actions;
+export const { addProduct, loadFromLocalStorage, removeProduct, clearOrder } = orderSlice.actions;
 export default orderSlice.reducer

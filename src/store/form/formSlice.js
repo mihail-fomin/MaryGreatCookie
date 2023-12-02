@@ -51,11 +51,7 @@ export const submitForm = createAsyncThunk(
 const formSlice = createSlice({
   name: 'form',
   initialState,
-  reducers: {
-    updateFormValue: (state, action) => {
-      state[action.payload.field] = action.payload.value;
-    }
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(submitForm.pending, (state) => {
@@ -74,5 +70,4 @@ const formSlice = createSlice({
   }
 })
 
-export const { updateFormValue } = formSlice.actions
 export default formSlice.reducer
