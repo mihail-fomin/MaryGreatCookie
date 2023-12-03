@@ -1,8 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
-import { API_URI, POSTFIX } from "../../const";
+import { createSlice } from "@reduxjs/toolkit"
 import { sumCount, sumPrice } from "../../utils/calcCountAndPrice";
-import { orderApi, } from './orderApi';
 
 
 const orderList = JSON.parse(localStorage.getItem('order') || '[]')

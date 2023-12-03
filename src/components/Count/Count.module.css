@@ -1,44 +1,42 @@
 .count {
-  flex: 0 0 25%;
-	height: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: #F2F2F3;
-	border-radius: 8px;
-	padding: 7px 8px;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 16px;
+  flex: 0 0 20%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F2F2F3;
+  border-radius: 8px;
+  padding: 0px 3px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
 }
 
-.minus {
-	width: 8px;
+.minus,
+.plus {
+  width: 32px;
+  height: 32px;
+  border-radius: 25%;
+}
+
+.minus:hover,
+.plus:hover {
+  background: #e9e9e9;
+  transition: all 0.2s;
 }
 
 .minus:disabled {
-	cursor: default;
-}
-
-.plus {
-	width: 8px;
+  cursor: default;
 }
 
 
 @media (min-width: 1024px) {
-	.count {
-		height: 40px;
-		border-radius: 12px;
-		padding: 9px 12px;
-		font-size: 16px;
-		line-height: 22px;
-	}
+  .count {
+    height: 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 22px;
 
-	.minus {
-		width: 10px;
-	}
+  }
 
-	.plus {
-		width: 10px;
-	}
 }
