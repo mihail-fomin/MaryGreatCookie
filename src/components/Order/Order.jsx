@@ -10,7 +10,14 @@ import classNames from 'classnames'
 export const Order = () => {
   const dispatch = useDispatch()
 
-  const { totalPrice, totalCount, orderList, orderGoods } = useSelector(state => state.order)
+  const {
+    totalPrice,
+    totalCount,
+    orderList,
+    orderGoods
+  } = useSelector(state => state.order)
+
+  console.log('totalPrice: ', totalPrice);
 
   const [openOrder, setOpentOrder] = React.useState(false)
 
@@ -20,7 +27,11 @@ export const Order = () => {
         const itemInOrderList = orderList.find(
           itemAtOrderList => itemAtOrderList.id === item.id
         )
-        return <OrderGoods key={item.id} {...item} count={itemInOrderList ? itemInOrderList.count : 0} />
+        return <OrderGoods
+          key={item.id}
+          {...item}
+          count={itemInOrderList ? itemInOrderList.count : 0}
+        />
       })
     ) : null
   }
