@@ -30,34 +30,52 @@ const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    loadFromLocalStorage(state) {
-      const storageData = localStorage.getItem('order')
-      if (!!storageData) {
-        state.orderGoods = JSON.parse(storageData)
-      }
-    },
+    // loadFromLocalStorage(state) {
+    //   const storageData = localStorage.getItem('order')
+    //   if (!!storageData) {
+    //     state.orderGoods = JSON.parse(storageData)
+    //   }
+    // },
     addProduct: (state, action) => {
+      console.log('action.payload: ', action.payload);
+
+
       const itemInOrderList = state.orderList.find(
+        item => item.id === action.payload.id
+      )
+      const itemInOrderGoods = state.orderGoods.find(
         item => item.id === action.payload.id
       )
 
       if (itemInOrderList) {
         itemInOrderList.count++
+        itemInOrderGoods.count++
       }
       else {
+        const newProduct = {
+          ...action.payload,
+          count: 1,
+        };
         state.orderList.push({ id: action.payload.id, count: 1 })
-        state.orderGoods.push(action.payload)
+        state.orderGoods.push(newProduct)
         state.prepareQuery = state.orderList.map(order => order.id).join(',')
       }
       state.totalCount = sumCount(state.orderList)
+      state.totalPrice = sumPrice(state.orderGoods)
+
+
     },
     removeProduct: (state, action) => {
       const itemInOrderList = state.orderList.find(
         item => item.id === action.payload.id
       )
+      const itemInOrderGoods = state.orderGoods.find(
+        item => item.id === action.payload.id
+      )
       if (itemInOrderList) {
         if (itemInOrderList.count > 1) {
           itemInOrderList.count--
+          itemInOrderGoods.count--
         }
         else {
           state.orderList = state.orderList.filter(
@@ -69,7 +87,9 @@ const orderSlice = createSlice({
           state.prepareQuery = state.orderList.map(order => order.id).join(',')
         }
       }
-    state.totalCount = sumCount(state.orderList)
+      state.totalCount = sumCount(state.orderList)
+      state.totalPrice = sumPrice(state.orderGoods)
+
     },
     clearOrder: (state) => {
       state.orderList = []
