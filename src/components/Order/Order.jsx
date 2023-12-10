@@ -17,8 +17,6 @@ export const Order = () => {
     orderGoods
   } = useSelector(state => state.order)
 
-  console.log('totalPrice: ', totalPrice);
-
   const [openOrder, setOpentOrder] = React.useState(false)
 
   function renderOrderGoods() {

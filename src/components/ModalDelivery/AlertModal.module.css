@@ -1,0 +1,82 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s all;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+
+  width: 75vw;
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.modal__content p {
+  font-size: 1.5em;
+}
+
+.modal__content.active {
+  transform: scale(1);
+}
+
+.submit {
+  margin-top: 10px;
+  align-self: center;
+  min-width: 100px;
+  padding: 9px;
+  background-color: #BA1C36;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #FFFFFF;
+  transition: transform .1s ease, background-color .3s ease-in-out;
+}
+
+.submit:hover {
+  background-color: #F04360;
+}
+
+.submit:focus-visible {
+  background-color: #DB2544;
+}
+
+.submit:active {
+  transform: translate(1px, 2px)
+}
+
+@supports not selector(:focus-visible) {
+  .submit:focus {
+    background-color: #DB2544;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal__content {
+    width: 50vw;
+  }
+
+  .modal__content p {
+    font-size: 1.7em;
+  }
+}

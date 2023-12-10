@@ -34,8 +34,6 @@ const orderSlice = createSlice({
     //   }
     // },
     addProduct: (state, action) => {
-      console.log('action.payload: ', action.payload);
-
 
       const itemInOrderList = state.orderList.find(
         item => item.id === action.payload.id
@@ -91,6 +89,8 @@ const orderSlice = createSlice({
     clearOrder: (state) => {
       state.orderList = []
       state.orderGoods = []
+      state.totalPrice = 0
+      state.totalCount = 0
     }
   },
 })
