@@ -1,7 +1,7 @@
 import { API_URI, POSTFIX } from "../../../const";
 
 
-export async function submitForm(userData, order) {
+export async function submitForm(userData, order, selectedDate) {
 
 
   const bodyObject = {
@@ -12,6 +12,7 @@ export async function submitForm(userData, order) {
     floor: userData.floor,
     intercom: userData.intercom,
     comments: userData.comments,
+    selectedDate,
     productArray: order,
   }
 

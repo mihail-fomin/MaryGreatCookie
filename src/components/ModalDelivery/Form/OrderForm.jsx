@@ -1,24 +1,37 @@
-import React from 'react'
+import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import { registerLocale } from 'react-datepicker'; // Import registerLocale from react-datepicker
+import ru from 'date-fns/locale/ru'; // Import the Russian locale
+import "react-datepicker/dist/react-datepicker.css";
 
 import style from '../ModalDelivery.module.css';
 import classNames from 'classnames';
 
-import { closeModal } from '../../../store/modalDelivery/modalDeliverySlice';
 import { validateDeliveryForm } from './validateDeliveryForm';
 import { submitForm } from './tgMessageRequest';
-import { clearOrder } from '../../../store/order/orderSlice';
 import InputField from './InputField';
 import RadioButton from './RadioButton';
 import OrderDeliveryForm from './OrderDeliveryForm';
-import AlertModal from '../AlertModal'
+import AlertModal from '../AlertModal';
+
+registerLocale('ru', ru);
 
 
 export default function ModalForm() {
-  const dispatch = useDispatch()
   const { orderList } = useSelector(state => state.order)
   const [alertModalActive, setAlertModalActive] = React.useState(false)
+  const [selectedDate, setStartDate] = React.useState(null);
+  console.log('selectedDate: ', selectedDate);
+
+  let handleColor = (time) => {
+    return time.getHours() >= 10 && time.getHours() <= 19 ? style.textSuccess : style.textError;
+  };
+
+  const addDays = (days) => {
+    return new Date().setDate(new Date().getDate() + days);
+  }
 
   return (
     <>
@@ -35,7 +48,7 @@ export default function ModalForm() {
         validate={validateDeliveryForm}
         onSubmit={
           (values) => {
-            submitForm(values, orderList)
+            submitForm(values, orderList, selectedDate)
             setAlertModalActive(true)
           }
         }
@@ -103,6 +116,21 @@ export default function ModalForm() {
               placeholder='Комментарии к заказу'
               onChange={handleChange}
             />
+            <DatePicker
+              locale="ru"
+              selected={selectedDate}
+              showTimeSelect
+              onChange={(date) => setStartDate(date)}
+              dateFormat="dd MMMM yyyy HH:mm"
+              minDate={new Date()}
+              maxDate={addDays(14)}
+              timeClassName={handleColor}
+              timeFormat="HH:mm"
+              placeholderText="Выберите дату и время"
+              className={style.datePicker} 
+              timeCaption="Время"
+            />
+
             <button
               className={style.submit}
               type='submit'

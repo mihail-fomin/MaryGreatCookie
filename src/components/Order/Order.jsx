@@ -17,7 +17,7 @@ export const Order = () => {
     orderGoods
   } = useSelector(state => state.order)
 
-  const [openOrder, setOpentOrder] = React.useState(false)
+  const [openOrder, setOpentOrder] = React.useState(true)
 
   function renderOrderGoods() {
     return Array.isArray(orderGoods) ? (
