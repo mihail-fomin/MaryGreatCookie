@@ -12,8 +12,9 @@ export const App = () => {
     <Provider store={store}>
       <Header />
       <main>
-        <Navigation />
-        <Catalog />
+      <h1 className="app-inactive__title">Сайт временно не работает. Приносим свои извинения...</h1>
+        {/* <Navigation />
+        <Catalog /> */}
       </main>
       <Footer />
       <ModalDelivery />

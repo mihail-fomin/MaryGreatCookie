@@ -196,3 +196,10 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.app-inactive__title {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+}
