@@ -201,5 +201,16 @@ body {
     font-size: 2rem;
     display: flex;
     justify-content: center;
-    margin-bottom: 10rem;
+    margin-bottom: 3rem;
+}
+
+.app-inactive__subtitle {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.app-inactive__subtitle a {
+  color: #912b4b;
 }

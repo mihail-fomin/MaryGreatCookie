@@ -13,6 +13,10 @@ export const App = () => {
       <Header />
       <main>
       <h1 className="app-inactive__title">Сайт временно не работает. Приносим свои извинения...</h1>
+      <h2 className="app-inactive__subtitle">
+        С актуальной витриной можете ознакомиться&nbsp;
+        <a href="https://flowwow.com/shop/marygreatcookie/?from=product" target="_blank">здесь</a>
+      </h2>
         {/* <Navigation />
         <Catalog /> */}
       </main>
