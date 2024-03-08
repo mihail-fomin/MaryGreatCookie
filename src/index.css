@@ -198,19 +198,29 @@ body {
 }
 
 .app-inactive__title {
-    font-size: 2rem;
+  font-size: 1.5rem;
     display: flex;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .app-inactive__subtitle {
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
+  font-size: 1.5rem;
   margin-bottom: 5rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-inactive__subtitle a {
-  color: #912b4b;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  color: #661e35;
+  border: 1px solid #F04360;
+  padding: 1rem;
+  border-radius: 1rem;
 }
